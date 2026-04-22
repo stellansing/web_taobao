@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>首页</title>
+    <link rel="stylesheet" href="node_modules/normalize.css/normalize.css">
+    <link rel="stylesheet" href="node_modules/@fortawesome/fontawesome-free/css/all.css">
+    <link rel="stylesheet" href="css/globle.css">
+    <link rel="stylesheet" href="css/index.css">
+    <script src="js/index.js"></script>
+</head>
+<body>
+    
+<div class="wrapper">
+    <div class="header">
+        <p class="logo">淘宝闪购</p>
+        <i class="fa-solid fa-location-dot" style="font-size: 4vw"></i>
+        <p>云南大学软件学院人工智能学院</p>
+        <i class="fa-solid fa-angle-down" style="font-size: 2vw"></i>
+    </div>
+    <div class="query">
+        <div class="search-panel">
+            <i class="fa-brands fa-sistrix" style="flex:0 0 6vw"></i>
+            <input type="text" style="flex:1" placeholder="请输入商品名称">
+            <div style="flex: 0 0 15vw">搜索</div>
+        </div>
+    </div>
+
+    <div class="main">
+        <div class="mainTop">
+            <div class="line">&nbsp;</div>
+            <div>为你推荐附近的商家</div>
+            <div class="line">&nbsp;</div>
+        </div>
+    </div>
+    <div>&nbsp;</div>
+    <div class="footer">
+        <div id="MenuHome" onclick="clickMenu(1)" style="color: #FF6200">
+            <i class="fa-solid fa-house"></i>
+            <p class="">首页</p>
+        </div>
+        <div id="MenuOrder" onclick="clickMenu(2)">
+            <i class="fa-regular fa-paste"></i>
+            <p class="">订单</p>
+        </div>
+        <div id="MenuMy" onclick="clickMenu(3)">
+            <i class="fa-solid fa-user"></i>
+            <p class="">我的</p>
+        </div>
+    </div>
+</div>
+</body>
+</html>

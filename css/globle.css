@@ -1,0 +1,22 @@
+html,body{
+    font-family: "Microsoft YaHei", "微软雅黑", sans-serif;
+    width: 100vw;
+    height: 100vh;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+.Title{
+    font-size: 4.2vw;
+    font-weight: bolder;
+}
+.remark{
+    font-size: 3vw;
+    color: #8f8f8f;
+}
+
+.gradeText{
+    font-size: 3.2vw;
+    color: #EE7E3A;
+}
