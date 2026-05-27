@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="node_modules/normalize.css/normalize.css">
+    <link rel="stylesheet" href="node_modules/@fortawesome/fontawesome-free/css/all.css">
+    <link rel="stylesheet" href="css/globle.css">
+    <script src="js/globle.js"></script>
+    <title>我的</title>
+    <script src="js/home.js"></script>
+    <link rel="stylesheet" href="css/home.css">
+</head>
+<body>
+<div class="wrapper">
+    <div class="header">
+        <div class="shanGouTag">闪购</div>
+    </div>
+    <div class="main">
+        <div class="userInfo">
+            <img src="image/userHead.jpeg" height="120" width="120" alt=""/>
+            <div class="userName">188****8888</div>
+            <div style="width: 25vw">&nbsp;</div>
+            <div class="userManageButton">账户管理</div>
+        </div>
+        <div class="userProperty" onclick="clickProperty()">
+            <div style="display: flex ;">
+                <div class="userPropertyAll">
+                    <img src="image/property.webp" alt="">
+                    <div>我的资产</div>
+                </div>
+                <img style="height: 20vw;margin-left: 5vw" src="image/line.png" alt="">
+            </div>
+
+            <div class="userPropertyRead">
+                <img src="image/packet.png" alt="">
+                <div style="font-size: 3.5vw;font-weight: bold" >红包</div>
+                <div style="color: #999">查看我的红包</div>
+            </div>
+            <div class="userPropertyPacket">
+                <img src="image/readP.png" alt="">
+                <div style="font-size: 3.5vw;font-weight: bold">券包</div>
+                <div style="color: #999">查看我的券</div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div id="MenuHome" onclick="clickMenu(1)" >
+            <i class="fa-solid fa-house"></i>
+            <p>首页</p>
+        </div>
+        <div id="MenuOrder" onclick="clickMenu(2)">
+            <i class="fa-regular fa-paste"></i>
+            <p>订单</p>
+        </div>
+        <div id="MenuMy" onclick="clickMenu(3)" style="color: #FF6200">
+            <i class="fa-solid fa-user"></i>
+            <p>我的</p>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

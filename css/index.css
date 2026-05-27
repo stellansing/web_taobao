@@ -195,6 +195,7 @@
     align-items: center;
     padding-top: 2vw;
     color: #454C5D;
+    -webkit-tap-highlight-color: transparent;
 }
 .footer p{
     font-size: 2.5vw;

@@ -1,0 +1,233 @@
+.wrapper {
+    width: 100%;
+    min-height: 100vh;
+    background-color: #F3F6F8;
+    padding-bottom: 12vw;
+    font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+}
+
+.header {
+    display: flex;
+    height: 12vw;
+    width: 100%;
+    background-color: white;
+    align-items: center;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid #eee;
+}
+
+.header .tab {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    font-size: 4.5vw;
+    color: #666;
+    position: relative;
+    cursor: pointer;
+}
+
+.header .tab.active {
+    color: #FF6200;
+    font-weight: bold;
+}
+
+.header .tab.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 8vw;
+    height: 0.8vw;
+    background-color: #FF6200;
+    border-radius: 0.4vw;
+}
+
+.header .tab .badge {
+    position: absolute;
+    top: 2vw;
+    right: 25%;
+    background-color: #FF6200;
+    color: white;
+    font-size: 2.5vw;
+    padding: 0.2vw 1.5vw;
+    border-radius: 2vw;
+    min-width: 4vw;
+    text-align: center;
+}
+
+/* 筛选标签栏 */
+.filter-bar {
+    width: 100%;
+    position: fixed;
+    left: 0;
+    top: 12vw;
+    height: 12vw;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    padding: 0 3vw;
+    overflow-x: auto;
+    white-space: nowrap;
+    z-index: 99;
+    border-bottom: 1px solid #eee;
+}
+
+.filter-bar::-webkit-scrollbar {
+    display: none;
+}
+
+.filter-tag {
+    flex-shrink: 0;
+    padding: 1.5vw 3vw;
+    margin-right: 3vw;
+    background-color: #F5F5F5;
+    border-radius: 4vw;
+    font-size: 3.2vw;
+    color: #666;
+    cursor: pointer;
+}
+
+.filter-tag.active {
+    background-color: #FF6200;
+    color: white;
+}
+
+/* 红包列表 */
+.main {
+    margin-top: 24vw;
+    padding: 3vw 0;
+}
+
+.red-packet-list {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+}
+
+.red-packet-item {
+    width: 95%;
+    background-color: white;
+    border-radius: 8px;
+    margin-bottom: 3vw;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.packet-header {
+    display: flex;
+    padding: 4vw;
+    align-items: center;
+    position: relative;
+}
+
+.packet-icon {
+    width: 12vw;
+    height: 12vw;
+    background: linear-gradient(135deg, #FF6200, #FF4B5A);
+    border-radius: 2vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 3vw;
+    flex-shrink: 0;
+}
+
+.packet-icon i {
+    color: #FFD700;
+    font-size: 5vw;
+}
+
+.packet-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.packet-name {
+    font-size: 4.2vw;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 1.5vw;
+}
+
+.packet-expire {
+    font-size: 3.2vw;
+    color: #FF4B5A;
+}
+
+.packet-amount {
+    text-align: right;
+    flex-shrink: 0;
+}
+
+.amount-value {
+    font-size: 7vw;
+    font-weight: bold;
+    color: #FF4B5A;
+}
+
+.amount-condition {
+    font-size: 3.2vw;
+    color: #999;
+    margin-top: 0.5vw;
+}
+
+.expire-tag {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: #FF4B5A;
+    color: white;
+    font-size: 2.5vw;
+    padding: 1vw 2vw;
+    border-bottom-left-radius: 4px;
+}
+
+.packet-footer {
+    padding: 2vw 4vw;
+    border-top: 1px dashed #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 3vw;
+    color: #999;
+}
+
+.packet-footer i {
+    color: #ccc;
+    font-size: 3.5vw;
+}
+
+/* 底部导航 */
+.footer {
+    width: 100%;
+    height: 12vw;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: white;
+    border-top: 1px solid #eee;
+    z-index: 100;
+}
+
+.footer div {
+    flex-direction: column;
+    display: flex;
+    cursor: pointer;
+    justify-content: center;
+    align-items: center;
+    color: #454C5D;
+    -webkit-tap-highlight-color: transparent;
+    font-size: 3.5vw;
+}

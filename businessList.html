@@ -1,10 +1,420 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="node_modules/normalize.css/normalize.css">
+    <link rel="stylesheet" href="node_modules/@fortawesome/fontawesome-free/css/all.css">
+    <link rel="stylesheet" href="css/globle.css">
+    <title>订单</title>
+    <link rel="stylesheet" href="css/businessList.css">
+    <script src="js/businessList.js"></script>
+    <script src="js/globle.js"></script>
 </head>
 <body>
-
+<div class="wrapper">
+<div class="header">
+    <div class="query">
+        <div class="search-panel">
+            <i class="fa-brands fa-sistrix" style="flex:0 0 6vw"></i>
+            <input type="text" style="flex:1" placeholder="搜订单">
+        </div>
+    </div>
+    <div class="menu">
+        <div id="tabAll" class="choice" onclick="switchTab(1)">全部</div>
+        <div id="tabGoing" class="choice" onclick="switchTab(2)">进行中</div>
+        <div id="tabRefund" class="choice" onclick="switchTab(3)">退款</div>
+        <div class="underline"></div>
+    </div>
+</div>
+<div class="main">
+    <div class="orderAll" id="orderAll" >
+        <div class="orderList">
+            <div class="orderItem">
+                <div class="orderItemTop">
+                    <img src="image/chickenHeader.webp" alt="">
+                    <div class="orderItemTopInfo">
+                        <div class="orderItemTopInfoName">
+                            <div>优鲜美佳(万彩城店)</div>
+                            <i style="color: #BDBDBD" class="fa-solid fa-chevron-down"></i>
+                        </div>
+                        <div class="orderItemTopSituation">超出配送范围</div>
+                    </div>
+                    <div class="orderItemTopTime">已送达</div>
+                </div>
+                <div class="orderItemMain">
+                    <div class="orderItemImage">
+                        <img src="image/chicken1.jpeg" alt="">
+                        <img src="image/chicken2.jpg" alt="">
+                        <img src="image/chicken3.jpeg" alt="">
+                    </div>
+                    <div class="orderItemPrice">
+                        <div style="font-size: 6vw">¥9.90</div>
+                        <div style="font-size: 3vw">共3件</div>
+                    </div>
+                </div>
+                <div class="orderItemFoot">
+                    <div>评价</div>
+                </div>
+            </div>
+            <div class="orderItem">
+                <div class="orderItemTop">
+                    <img src="image/chickenHeader.webp" alt="">
+                    <div class="orderItemTopInfo">
+                        <div class="orderItemTopInfoName">
+                            <div>优鲜美佳(万彩城店)</div>
+                            <i style="color: #BDBDBD" class="fa-solid fa-chevron-down"></i>
+                        </div>
+                        <div class="orderItemTopSituation">超出配送范围</div>
+                    </div>
+                    <div class="orderItemTopTime">已送达</div>
+                </div>
+                <div class="orderItemMain">
+                    <div class="orderItemImage">
+                        <img src="image/chicken1.jpeg" alt="">
+                        <img src="image/chicken2.jpg" alt="">
+                        <img src="image/chicken3.jpeg" alt="">
+                    </div>
+                    <div class="orderItemPrice">
+                        <div style="font-size: 6vw">¥9.90</div>
+                        <div style="font-size: 3vw">共3件</div>
+                    </div>
+                </div>
+                <div class="orderItemFoot">
+                    <div>评价</div>
+                </div>
+            </div>
+            <div class="orderItem">
+                <div class="orderItemTop">
+                    <img src="image/chickenHeader.webp" alt="">
+                    <div class="orderItemTopInfo">
+                        <div class="orderItemTopInfoName">
+                            <div>优鲜美佳(万彩城店)</div>
+                            <i style="color: #BDBDBD" class="fa-solid fa-chevron-down"></i>
+                        </div>
+                        <div class="orderItemTopSituation">超出配送范围</div>
+                    </div>
+                    <div class="orderItemTopTime">已送达</div>
+                </div>
+                <div class="orderItemMain">
+                    <div class="orderItemImage">
+                        <img src="image/chicken1.jpeg" alt="">
+                        <img src="image/chicken2.jpg" alt="">
+                        <img src="image/chicken3.jpeg" alt="">
+                    </div>
+                    <div class="orderItemPrice">
+                        <div style="font-size: 6vw">¥9.90</div>
+                        <div style="font-size: 3vw">共3件</div>
+                    </div>
+                </div>
+                <div class="orderItemFoot">
+                    <div>评价</div>
+                </div>
+            </div>
+            <div class="orderItem">
+                <div class="orderItemTop">
+                    <img src="image/chickenHeader.webp" alt="">
+                    <div class="orderItemTopInfo">
+                        <div class="orderItemTopInfoName">
+                            <div>优鲜美佳(万彩城店)</div>
+                            <i style="color: #BDBDBD" class="fa-solid fa-chevron-down"></i>
+                        </div>
+                        <div class="orderItemTopSituation">超出配送范围</div>
+                    </div>
+                    <div class="orderItemTopTime">已送达</div>
+                </div>
+                <div class="orderItemMain">
+                    <div class="orderItemImage">
+                        <img src="image/chicken1.jpeg" alt="">
+                        <img src="image/chicken2.jpg" alt="">
+                        <img src="image/chicken3.jpeg" alt="">
+                    </div>
+                    <div class="orderItemPrice">
+                        <div style="font-size: 6vw">¥9.90</div>
+                        <div style="font-size: 3vw">共3件</div>
+                    </div>
+                </div>
+                <div class="orderItemFoot">
+                    <div>评价</div>
+                </div>
+            </div>
+            <div class="orderItem">
+                <div class="orderItemTop">
+                    <img src="image/chickenHeader.webp" alt="">
+                    <div class="orderItemTopInfo">
+                        <div class="orderItemTopInfoName">
+                            <div>优鲜美佳(万彩城店)</div>
+                            <i style="color: #BDBDBD" class="fa-solid fa-chevron-down"></i>
+                        </div>
+                        <div class="orderItemTopSituation">超出配送范围</div>
+                    </div>
+                    <div class="orderItemTopTime">已送达</div>
+                </div>
+                <div class="orderItemMain">
+                    <div class="orderItemImage">
+                        <img src="image/chicken1.jpeg" alt="">
+                        <img src="image/chicken2.jpg" alt="">
+                        <img src="image/chicken3.jpeg" alt="">
+                    </div>
+                    <div class="orderItemPrice">
+                        <div style="font-size: 6vw">¥9.90</div>
+                        <div style="font-size: 3vw">共3件</div>
+                    </div>
+                </div>
+                <div class="orderItemFoot">
+                    <div>评价</div>
+                </div>
+            </div>
+            <div class="orderItem">
+                <div class="orderItemTop">
+                    <img src="image/chickenHeader.webp" alt="">
+                    <div class="orderItemTopInfo">
+                        <div class="orderItemTopInfoName">
+                            <div>优鲜美佳(万彩城店)</div>
+                            <i style="color: #BDBDBD" class="fa-solid fa-chevron-down"></i>
+                        </div>
+                        <div class="orderItemTopSituation">超出配送范围</div>
+                    </div>
+                    <div class="orderItemTopTime">已送达</div>
+                </div>
+                <div class="orderItemMain">
+                    <div class="orderItemImage">
+                        <img src="image/chicken1.jpeg" alt="">
+                        <img src="image/chicken2.jpg" alt="">
+                        <img src="image/chicken3.jpeg" alt="">
+                    </div>
+                    <div class="orderItemPrice">
+                        <div style="font-size: 6vw">¥9.90</div>
+                        <div style="font-size: 3vw">共3件</div>
+                    </div>
+                </div>
+                <div class="orderItemFoot">
+                    <div>评价</div>
+                </div>
+            </div>
+            <div class="orderItem">
+                <div class="orderItemTop">
+                    <img src="image/chickenHeader.webp" alt="">
+                    <div class="orderItemTopInfo">
+                        <div class="orderItemTopInfoName">
+                            <div>优鲜美佳(万彩城店)</div>
+                            <i style="color: #BDBDBD" class="fa-solid fa-chevron-down"></i>
+                        </div>
+                        <div class="orderItemTopSituation">超出配送范围</div>
+                    </div>
+                    <div class="orderItemTopTime">已送达</div>
+                </div>
+                <div class="orderItemMain">
+                    <div class="orderItemImage">
+                        <img src="image/chicken1.jpeg" alt="">
+                        <img src="image/chicken2.jpg" alt="">
+                        <img src="image/chicken3.jpeg" alt="">
+                    </div>
+                    <div class="orderItemPrice">
+                        <div style="font-size: 6vw">¥9.90</div>
+                        <div style="font-size: 3vw">共3件</div>
+                    </div>
+                </div>
+                <div class="orderItemFoot">
+                    <div>评价</div>
+                </div>
+            </div>
+            <div class="orderItem">
+                <div class="orderItemTop">
+                    <img src="image/chickenHeader.webp" alt="">
+                    <div class="orderItemTopInfo">
+                        <div class="orderItemTopInfoName">
+                            <div>优鲜美佳(万彩城店)</div>
+                            <i style="color: #BDBDBD" class="fa-solid fa-chevron-down"></i>
+                        </div>
+                        <div class="orderItemTopSituation">超出配送范围</div>
+                    </div>
+                    <div class="orderItemTopTime">已送达</div>
+                </div>
+                <div class="orderItemMain">
+                    <div class="orderItemImage">
+                        <img src="image/chicken1.jpeg" alt="">
+                        <img src="image/chicken2.jpg" alt="">
+                        <img src="image/chicken3.jpeg" alt="">
+                    </div>
+                    <div class="orderItemPrice">
+                        <div style="font-size: 6vw">¥9.90</div>
+                        <div style="font-size: 3vw">共3件</div>
+                    </div>
+                </div>
+                <div class="orderItemFoot">
+                    <div>评价</div>
+                </div>
+            </div>
+            <div class="orderItem">
+                <div class="orderItemTop">
+                    <img src="image/chickenHeader.webp" alt="">
+                    <div class="orderItemTopInfo">
+                        <div class="orderItemTopInfoName">
+                            <div>优鲜美佳(万彩城店)</div>
+                            <i style="color: #BDBDBD" class="fa-solid fa-chevron-down"></i>
+                        </div>
+                        <div class="orderItemTopSituation">超出配送范围</div>
+                    </div>
+                    <div class="orderItemTopTime">已送达</div>
+                </div>
+                <div class="orderItemMain">
+                    <div class="orderItemImage">
+                        <img src="image/chicken1.jpeg" alt="">
+                        <img src="image/chicken2.jpg" alt="">
+                        <img src="image/chicken3.jpeg" alt="">
+                    </div>
+                    <div class="orderItemPrice">
+                        <div style="font-size: 6vw">¥9.90</div>
+                        <div style="font-size: 3vw">共3件</div>
+                    </div>
+                </div>
+                <div class="orderItemFoot">
+                    <div>评价</div>
+                </div>
+            </div>
+            <div class="orderItem">
+                <div class="orderItemTop">
+                    <img src="image/chickenHeader.webp" alt="">
+                    <div class="orderItemTopInfo">
+                        <div class="orderItemTopInfoName">
+                            <div>优鲜美佳(万彩城店)</div>
+                            <i style="color: #BDBDBD" class="fa-solid fa-chevron-down"></i>
+                        </div>
+                        <div class="orderItemTopSituation">超出配送范围</div>
+                    </div>
+                    <div class="orderItemTopTime">已送达</div>
+                </div>
+                <div class="orderItemMain">
+                    <div class="orderItemImage">
+                        <img src="image/chicken1.jpeg" alt="">
+                        <img src="image/chicken2.jpg" alt="">
+                        <img src="image/chicken3.jpeg" alt="">
+                    </div>
+                    <div class="orderItemPrice">
+                        <div style="font-size: 6vw">¥9.90</div>
+                        <div style="font-size: 3vw">共3件</div>
+                    </div>
+                </div>
+                <div class="orderItemFoot">
+                    <div>评价</div>
+                </div>
+            </div>
+            <div class="orderItem">
+                <div class="orderItemTop">
+                    <img src="image/chickenHeader.webp" alt="">
+                    <div class="orderItemTopInfo">
+                        <div class="orderItemTopInfoName">
+                            <div>优鲜美佳(万彩城店)</div>
+                            <i style="color: #BDBDBD" class="fa-solid fa-chevron-down"></i>
+                        </div>
+                        <div class="orderItemTopSituation">超出配送范围</div>
+                    </div>
+                    <div class="orderItemTopTime">已送达</div>
+                </div>
+                <div class="orderItemMain">
+                    <div class="orderItemImage">
+                        <img src="image/chicken1.jpeg" alt="">
+                        <img src="image/chicken2.jpg" alt="">
+                        <img src="image/chicken3.jpeg" alt="">
+                    </div>
+                    <div class="orderItemPrice">
+                        <div style="font-size: 6vw">¥9.90</div>
+                        <div style="font-size: 3vw">共3件</div>
+                    </div>
+                </div>
+                <div class="orderItemFoot">
+                    <div>评价</div>
+                </div>
+            </div>
+            <div class="orderItem">
+                <div class="orderItemTop">
+                    <img src="image/chickenHeader.webp" alt="">
+                    <div class="orderItemTopInfo">
+                        <div class="orderItemTopInfoName">
+                            <div>优鲜美佳(万彩城店)</div>
+                            <i style="color: #BDBDBD" class="fa-solid fa-chevron-down"></i>
+                        </div>
+                        <div class="orderItemTopSituation">超出配送范围</div>
+                    </div>
+                    <div class="orderItemTopTime">已送达</div>
+                </div>
+                <div class="orderItemMain">
+                    <div class="orderItemImage">
+                        <img src="image/chicken1.jpeg" alt="">
+                        <img src="image/chicken2.jpg" alt="">
+                        <img src="image/chicken3.jpeg" alt="">
+                    </div>
+                    <div class="orderItemPrice">
+                        <div style="font-size: 6vw">¥9.90</div>
+                        <div style="font-size: 3vw">共3件</div>
+                    </div>
+                </div>
+                <div class="orderItemFoot">
+                    <div>评价</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="orderGoing" id="orderGoing">
+        <div class="orderList">
+            <div class="orderItem">
+                <div class="orderItemTop">
+                    <img src="image/sj06.png" alt="">
+                    <div class="orderItemTopInfo">
+                        <div class="orderItemTopInfoName">
+                            <div>优鲜美佳(万彩城店)</div>
+                            <i style="color: #BDBDBD" class="fa-solid fa-chevron-down"></i>
+                        </div>
+                        <div class="orderItemTopSituation">
+                            <div class="orderItemTopSituationText">本店下5单得3¥红包</div>
+                            <i class="fa-regular fa-circle-check"></i>
+                            <i class="fa-regular fa-circle"></i>
+                            <i class="fa-regular fa-circle"></i>
+                            <i class="fa-regular fa-circle"></i>
+                            <i class="fa-regular fa-circle"></i>
+                        </div>
+                    </div>
+                    <div class="orderItemTopTime">预计12:00-12:20送达</div>
+                </div>
+                <div class="orderItemMain">
+                    <div class="orderItemImage">
+                        <img src="image/sp01.png" alt="">
+                        <div class="orderItemDetailInfo">
+                            <div class="orderItemDetailInfoName">酸汤米干-小碗</div>
+                            <div class="orderItemDetailInfoSize">小碗</div>
+                            <div class="orderItemDetailInfoTag">食品安全理赔</div>
+                        </div>
+                    </div>
+                    <div class="orderItemPrice">
+                        <div style="font-size: 4vw">¥9.9</div>
+                        <div>共1件</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="orderRefound" id="orderRefound">
+        <img src="https://gw.alicdn.com/imgextra/i3/O1CN01CYKyp91SspCKLq3y3_!!6000000002303-2-tps-400-320.png" alt="">
+        <div style="color: #7c889c;font-weight: 500">近3个月内无退款订单</div>
+        <div style="margin-top: 4vw;color: #7c889c">那些猝不及防的瞬间 也是生活的小插曲</div>
+    </div>
+</div>
+<div>&nbsp;</div>
+<div class="footer">
+    <div id="MenuHome" onclick="clickMenu(1)" >
+        <i class="fa-solid fa-house"></i>
+        <p>首页</p>
+    </div>
+    <div id="MenuOrder" onclick="clickMenu(2)" style="color: #FF6200">
+        <i class="fa-regular fa-paste"></i>
+        <p>订单</p>
+    </div>
+    <div id="MenuMy" onclick="clickMenu(3)">
+        <i class="fa-solid fa-user"></i>
+        <p>我的</p>
+    </div>
+</div>
+</div>
 </body>
 </html>
