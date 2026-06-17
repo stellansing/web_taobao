@@ -2,8 +2,7 @@
     width: 100%;
     min-height: 100vh;
     background-color: #F3F6F8;
-    padding-bottom: 12vw;
-    font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+    font-family: "PingFang SC";
 }
 
 .header {
@@ -16,53 +15,54 @@
     left: 0;
     top: 0;
     z-index: 100;
-    border-bottom: 1px solid #eee;
 }
 
 .header .tab {
-    flex: 1;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100%;
     font-size: 4.5vw;
-    color: #666;
+    color: black;
     position: relative;
     cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .header .tab.active {
-    color: #FF6200;
     font-weight: bold;
 }
-
-.header .tab.active::after {
-    content: '';
+/*底部横线*/
+.underline{
     position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 8vw;
-    height: 0.8vw;
+    bottom: 1vw;
+    left: 0.5vw;
+    width: 4vw;
+    height: 1vw;
     background-color: #FF6200;
-    border-radius: 0.4vw;
+    transition: all 0.3s ease;
+    border-radius: 1vw;
 }
-
 .header .tab .badge {
     position: absolute;
-    top: 2vw;
-    right: 25%;
-    background-color: #FF6200;
-    color: white;
+    top: 3vw;
+    right: 0;
+    color: #66667F;
     font-size: 2.5vw;
     padding: 0.2vw 1.5vw;
-    border-radius: 2vw;
-    min-width: 4vw;
     text-align: center;
+}
+.RedPacketList,
+.TicketList {
+    display: none;
+}
+.RedPacketList.active,
+.TicketList.active{
+    display: flex;
 }
 
 /* 筛选标签栏 */
-.filter-bar {
+.filter {
     width: 100%;
     position: fixed;
     left: 0;
@@ -75,25 +75,24 @@
     overflow-x: auto;
     white-space: nowrap;
     z-index: 99;
-    border-bottom: 1px solid #eee;
+    -webkit-tap-highlight-color: transparent;
 }
 
-.filter-bar::-webkit-scrollbar {
+.filter::-webkit-scrollbar {
     display: none;
 }
 
-.filter-tag {
-    flex-shrink: 0;
+.filterTag  {
     padding: 1.5vw 3vw;
     margin-right: 3vw;
     background-color: #F5F5F5;
-    border-radius: 4vw;
+    border-radius: 2vw;
     font-size: 3.2vw;
     color: #666;
     cursor: pointer;
 }
 
-.filter-tag.active {
+.filterTag .active {
     background-color: #FF6200;
     color: white;
 }
@@ -101,33 +100,32 @@
 /* 红包列表 */
 .main {
     margin-top: 24vw;
-    padding: 3vw 0;
+    padding: 0;
 }
 
-.red-packet-list {
-    display: flex;
+.RedPacketList {
     width: 100%;
     flex-direction: column;
     align-items: center;
 }
 
-.red-packet-item {
-    width: 95%;
+.RedPacketItem {
+    width: 96%;
+    height: 32vw;
     background-color: white;
-    border-radius: 8px;
+    border-radius: 6px;
     margin-bottom: 3vw;
     overflow: hidden;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
 }
 
-.packet-header {
+.packetHeader {
     display: flex;
     padding: 4vw;
     align-items: center;
     position: relative;
 }
 
-.packet-icon {
+.packetIcon {
     width: 12vw;
     height: 12vw;
     background: linear-gradient(135deg, #FF6200, #FF4B5A);
@@ -139,73 +137,146 @@
     flex-shrink: 0;
 }
 
-.packet-icon i {
+.packetIcon i {
     color: #FFD700;
     font-size: 5vw;
 }
 
-.packet-info {
+.packetInfo {
     flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
 
-.packet-name {
+.packetName {
     font-size: 4.2vw;
     font-weight: bold;
     color: #333;
     margin-bottom: 1.5vw;
 }
 
-.packet-expire {
+.packetExpire {
     font-size: 3.2vw;
     color: #FF4B5A;
 }
 
-.packet-amount {
+.packetAmount {
     text-align: right;
     flex-shrink: 0;
 }
 
-.amount-value {
-    font-size: 7vw;
+.amountValue {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    font-size: 6vw;
     font-weight: bold;
+    font-family: 'AlibabaSans102v1Taobao-Bold';
     color: #FF4B5A;
 }
 
-.amount-condition {
+.yenSign {
+    font-size: 4vw;
+    margin-bottom: -2vw;
+}
+.amountCondition {
     font-size: 3.2vw;
     color: #999;
     margin-top: 0.5vw;
 }
 
-.expire-tag {
+.expireTag {
     position: absolute;
     top: 0;
     right: 0;
-    background-color: #FF4B5A;
-    color: white;
+    background-color: rgba(255, 75, 51, 0.12);
+    color: #f63c28;
     font-size: 2.5vw;
-    padding: 1vw 2vw;
+    padding: 1vw 1vw;
     border-bottom-left-radius: 4px;
 }
 
-.packet-footer {
+.packetFooter {
     padding: 2vw 4vw;
     border-top: 1px dashed #eee;
     display: flex;
-    justify-content: space-between;
     align-items: center;
     font-size: 3vw;
     color: #999;
 }
 
-.packet-footer i {
+.packetFooter i {
     color: #ccc;
     font-size: 3.5vw;
 }
+.emptyState {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 30vw;
+    width: 100%;
+}
 
+.emptyIcon {
+    position: relative;
+    width: 28vw;
+    height: 35vw;
+    margin-bottom: 6vw;
+}
+
+.emptyIcon .doc {
+    width: 24vw;
+    height: 32vw;
+    background-color: #E5E7EB;
+    border-radius: 2vw 0 2vw 2vw;
+    position: relative;
+}
+
+
+.emptyIcon .doc .lines {
+    position: absolute;
+    top: 8vw;
+    left: 4vw;
+    width: 16vw;
+    display: flex;
+    flex-direction: column;
+    gap: 3vw;
+}
+
+.emptyIcon .doc .lines .line {
+    height: 1.2vw;
+    background-color: #D1D5DB;
+    border-radius: 0.6vw;
+}
+
+.emptyIcon .sparkle {
+    position: absolute;
+    top: -2vw;
+    right: 0;
+    color: #FFB74D;
+    font-size: 4vw;
+}
+
+.emptyIcon .sparkle.small {
+    top: 3vw;
+    right: -3vw;
+    font-size: 2.5vw;
+}
+
+.emptyTitle {
+    font-size: 5.5vw;
+    color: #333;
+    font-weight: 500;
+    margin-bottom: 2vw;
+}
+
+.emptySubtitle {
+    font-size: 3.5vw;
+    color: #999;
+}
 /* 底部导航 */
 .footer {
     width: 100%;
@@ -213,12 +284,22 @@
     position: fixed;
     left: 0;
     bottom: 0;
-    display: flex;
     justify-content: space-around;
     align-items: center;
     background-color: white;
     border-top: 1px solid #eee;
     z-index: 100;
+}
+.footerRedPacket,
+.footerTicket {
+    display: none;
+}
+.footerRedPacket.active,
+.footerTicket.active{
+    display: flex;
+}
+.footer.active {
+    display: flex;
 }
 
 .footer div {
@@ -228,6 +309,10 @@
     justify-content: center;
     align-items: center;
     color: #454C5D;
-    -webkit-tap-highlight-color: transparent;
     font-size: 3.5vw;
+}
+
+.footerTicket div {
+    font-size: 4vw;
+    font-weight: 500;
 }

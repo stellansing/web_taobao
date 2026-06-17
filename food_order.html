@@ -1,0 +1,1312 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>霸碗盖码饭-外卖点餐</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .wrapper {
+            width: 100%;
+            min-height: 100vh;
+            background-color: #F7F8FA;
+            font-family: "PingFang SC", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            padding-bottom: 18vw;
+        }
+
+        /* 顶部店铺信息栏 */
+        .shopHeader {
+            width: 100%;
+            background: linear-gradient(180deg, #fff 0%, #F7F8FA 100%);
+            position: relative;
+        }
+
+        .shopBanner {
+            width: 100%;
+            height: 45vw;
+            background: linear-gradient(135deg, #B7282D 0%, #D4383D 50%, #E85055 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .bannerContent {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 5vw 4vw;
+            height: 100%;
+        }
+
+        .bannerText {
+            color: white;
+            flex: 1;
+        }
+
+        .bannerTitle {
+            font-size: 5.5vw;
+            font-weight: bold;
+            margin-bottom: 2vw;
+        }
+
+        .bannerSubtitle {
+            font-size: 3.5vw;
+            opacity: 0.9;
+            margin-bottom: 1vw;
+        }
+
+        .bannerStats {
+            font-size: 8vw;
+            font-weight: bold;
+        }
+
+        .bannerImage {
+            width: 35vw;
+            height: 35vw;
+            background-color: rgba(255,255,255,0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .bannerImage .foodIcon {
+            width: 28vw;
+            height: 28vw;
+            background: url('https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=200&h=200&fit=crop') center/cover;
+            border-radius: 50%;
+        }
+
+        .shopInfo {
+            background-color: white;
+            padding: 4vw;
+            margin: 0 3vw;
+            margin-top: -8vw;
+            border-radius: 3vw;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+            position: relative;
+            z-index: 10;
+        }
+
+        .shopNameRow {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 2vw;
+        }
+
+        .shopName {
+            font-size: 4.8vw;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .shopTags {
+            display: flex;
+            gap: 1.5vw;
+            margin-bottom: 2vw;
+        }
+
+        .tag {
+            padding: 0.5vw 2vw;
+            background-color: #FFECEC;
+            color: #D4383D;
+            font-size: 2.8vw;
+            border-radius: 1vw;
+            border: 1px solid #FFD0D0;
+        }
+
+        .shopStats {
+            display: flex;
+            align-items: center;
+            gap: 4vw;
+            margin-bottom: 3vw;
+        }
+
+        .statItem {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .statValue {
+            font-size: 5vw;
+            font-weight: bold;
+            color: #FF6200;
+        }
+
+        .statLabel {
+            font-size: 3vw;
+            color: #666;
+            margin-top: 0.5vw;
+        }
+
+        .statDivider {
+            width: 1px;
+            height: 6vw;
+            background-color: #eee;
+        }
+
+        .deliveryRow {
+            display: flex;
+            align-items: center;
+            gap: 3vw;
+            margin-bottom: 3vw;
+        }
+
+        .deliveryBtn {
+            padding: 2vw 4vw;
+            background-color: #FF6200;
+            color: white;
+            border-radius: 2vw;
+            font-size: 3.5vw;
+            font-weight: 500;
+        }
+
+        .deliveryInfo {
+            font-size: 3.2vw;
+            color: #666;
+        }
+
+        .deliveryTime {
+            color: #FF6200;
+            font-weight: 500;
+        }
+
+        .promotionRow {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2vw;
+            align-items: center;
+        }
+
+        .promoTag {
+            display: flex;
+            align-items: center;
+            gap: 1vw;
+            padding: 1vw 2vw;
+            background-color: #FFF5E6;
+            border-radius: 1vw;
+            font-size: 3vw;
+        }
+
+        .promoTag .icon {
+            width: 4vw;
+            height: 4vw;
+            background-color: #FF6200;
+            color: white;
+            border-radius: 0.5vw;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5vw;
+        }
+
+        .promoTag .text {
+            color: #FF6200;
+        }
+
+        .promoTag.receive {
+            background-color: #FFECEC;
+        }
+
+        .promoTag.receive .icon {
+            background-color: #D4383D;
+        }
+
+        .promoTag.receive .text {
+            color: #D4383D;
+        }
+
+        /* 标签导航栏 */
+        .tabNav {
+            display: flex;
+            height: 12vw;
+            width: 100%;
+            background-color: white;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid #eee;
+        }
+
+        .tabNav .tab {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            font-size: 4.2vw;
+            color: #666;
+            position: relative;
+            cursor: pointer;
+            padding: 0 5vw;
+        }
+
+        .tabNav .tab.active {
+            color: #333;
+            font-weight: bold;
+        }
+
+        .tabNav .tab.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 6vw;
+            height: 0.8vw;
+            background-color: #FF6200;
+            border-radius: 0.4vw;
+        }
+
+        .tabNav .tab .badge {
+            margin-left: 1vw;
+            font-size: 3vw;
+            color: #999;
+            font-weight: normal;
+        }
+
+        /* 内容区域 */
+        .contentArea {
+            display: none;
+        }
+
+        .contentArea.active {
+            display: block;
+        }
+
+        /* 点餐页面 - 左右布局 */
+        .orderContent {
+            display: flex;
+            min-height: 80vh;
+        }
+
+        /* 左侧分类 */
+        .categorySidebar {
+            width: 25vw;
+            background-color: #F7F8FA;
+            position: sticky;
+            top: 12vw;
+            height: calc(100vh - 12vw - 18vw);
+            overflow-y: auto;
+        }
+
+        .categorySidebar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .categoryItem {
+            padding: 4vw 2vw;
+            font-size: 3.2vw;
+            color: #666;
+            text-align: center;
+            position: relative;
+            cursor: pointer;
+            border-left: 3px solid transparent;
+        }
+
+        .categoryItem.active {
+            background-color: white;
+            color: #333;
+            font-weight: 500;
+            border-left-color: #FF6200;
+        }
+
+        .categoryItem .badge {
+            position: absolute;
+            top: 2vw;
+            right: 2vw;
+            padding: 0.5vw 1.5vw;
+            background: linear-gradient(90deg, #FF6200, #FF4B5A);
+            color: white;
+            font-size: 2.2vw;
+            border-radius: 2vw;
+        }
+
+        .categoryItem .newTag {
+            background: linear-gradient(90deg, #FF9500, #FF6200);
+        }
+
+        /* 右侧菜品列表 */
+        .foodList {
+            flex: 1;
+            background-color: white;
+            padding: 3vw;
+        }
+
+        .sectionTitle {
+            font-size: 3.8vw;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 3vw;
+            padding-top: 2vw;
+        }
+
+        .sectionDesc {
+            font-size: 3vw;
+            color: #999;
+            margin-top: 1vw;
+            font-weight: normal;
+        }
+
+        .foodItem {
+            display: flex;
+            padding: 3vw 0;
+            border-bottom: 1px solid #F5F5F5;
+        }
+
+        .foodImage {
+            width: 22vw;
+            height: 22vw;
+            background-color: #F5F5F5;
+            border-radius: 2vw;
+            flex-shrink: 0;
+            overflow: hidden;
+        }
+
+        .foodImage img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .foodInfo {
+            flex: 1;
+            margin-left: 3vw;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .foodName {
+            font-size: 4vw;
+            font-weight: 500;
+            color: #333;
+            margin-bottom: 1.5vw;
+        }
+
+        .foodTags {
+            display: flex;
+            gap: 1.5vw;
+            margin-bottom: 1.5vw;
+        }
+
+        .foodTag {
+            padding: 0.5vw 1.5vw;
+            font-size: 2.5vw;
+            border-radius: 0.5vw;
+        }
+
+        .foodTag.hot {
+            background-color: #FFECEC;
+            color: #D4383D;
+        }
+
+        .foodTag.rank {
+            background-color: #FFF5E6;
+            color: #FF6200;
+        }
+
+        .foodDesc {
+            font-size: 3vw;
+            color: #999;
+            margin-bottom: 1.5vw;
+        }
+
+        .foodSales {
+            font-size: 2.8vw;
+            color: #999;
+            margin-bottom: 2vw;
+        }
+
+        .foodPriceRow {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .priceInfo {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .originalPrice {
+            font-size: 3vw;
+            color: #999;
+            text-decoration: line-through;
+        }
+
+        .currentPrice {
+            display: flex;
+            align-items: baseline;
+        }
+
+        .priceSymbol {
+            font-size: 3vw;
+            color: #FF6200;
+        }
+
+        .priceValue {
+            font-size: 5vw;
+            font-weight: bold;
+            color: #FF6200;
+        }
+
+        .priceSuffix {
+            font-size: 2.8vw;
+            color: #FF6200;
+        }
+
+        .estimatePrice {
+            font-size: 2.8vw;
+            color: #999;
+            margin-left: 1vw;
+        }
+
+        .addBtn {
+            width: 8vw;
+            height: 8vw;
+            background: linear-gradient(135deg, #FF6200, #FF4B5A);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 4vw;
+            cursor: pointer;
+        }
+
+        .selectBtn {
+            padding: 2vw 4vw;
+            background: linear-gradient(135deg, #FF6200, #FF4B5A);
+            border-radius: 5vw;
+            color: white;
+            font-size: 3.2vw;
+            cursor: pointer;
+        }
+
+        /* 评价页面 */
+        .reviewContent {
+            padding: 3vw;
+            background-color: white;
+        }
+
+        .reviewHeader {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 4vw 0;
+            border-bottom: 1px solid #F5F5F5;
+        }
+
+        .reviewScore {
+            display: flex;
+            align-items: center;
+        }
+
+        .scoreValue {
+            font-size: 10vw;
+            font-weight: bold;
+            color: #FF6200;
+            margin-right: 3vw;
+        }
+
+        .scoreInfo {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .scoreRank {
+            font-size: 3vw;
+            color: #666;
+            margin-bottom: 1vw;
+        }
+
+        .stars {
+            color: #FF6200;
+            font-size: 3.5vw;
+        }
+
+        .scoreDetail {
+            display: flex;
+            gap: 4vw;
+        }
+
+        .scoreItem {
+            text-align: center;
+        }
+
+        .scoreItemLabel {
+            font-size: 3vw;
+            color: #666;
+            margin-bottom: 1vw;
+        }
+
+        .scoreItemValue {
+            font-size: 4.5vw;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .filterTags {
+            display: flex;
+            overflow-x: auto;
+            padding: 3vw 0;
+            gap: 2vw;
+        }
+
+        .filterTags::-webkit-scrollbar {
+            display: none;
+        }
+
+        .filterTag {
+            padding: 2vw 3vw;
+            background-color: #F5F5F5;
+            border-radius: 5vw;
+            font-size: 3.2vw;
+            color: #666;
+            white-space: nowrap;
+            cursor: pointer;
+        }
+
+        .filterTag.active {
+            background-color: #FF6200;
+            color: white;
+        }
+
+        .aiReview {
+            background: linear-gradient(135deg, #F0F7FF, #E6F3FF);
+            border-radius: 3vw;
+            padding: 4vw;
+            margin: 3vw 0;
+        }
+
+        .aiReviewHeader {
+            display: flex;
+            align-items: center;
+            margin-bottom: 2vw;
+        }
+
+        .aiIcon {
+            width: 6vw;
+            height: 6vw;
+            background: linear-gradient(135deg, #667EEA, #764BA2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3.5vw;
+            margin-right: 2vw;
+        }
+
+        .aiTitle {
+            font-size: 3.5vw;
+            font-weight: 500;
+            color: #333;
+        }
+
+        .aiSubtitle {
+            font-size: 2.8vw;
+            color: #999;
+            margin-left: 1vw;
+        }
+
+        .aiContent {
+            font-size: 3.2vw;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* 商家页面 */
+        .merchantContent {
+            background-color: white;
+            padding: 4vw;
+        }
+
+        .merchantName {
+            font-size: 4.5vw;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 3vw;
+        }
+
+        .merchantInfoItem {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 3vw;
+        }
+
+        .merchantInfoItem i {
+            color: #999;
+            font-size: 3.5vw;
+            margin-right: 2vw;
+            margin-top: 0.5vw;
+        }
+
+        .merchantInfoText {
+            flex: 1;
+            font-size: 3.2vw;
+            color: #666;
+            line-height: 1.5;
+        }
+
+        .imageGallery {
+            display: flex;
+            gap: 2vw;
+            overflow-x: auto;
+            padding: 3vw 0;
+        }
+
+        .imageGallery::-webkit-scrollbar {
+            display: none;
+        }
+
+        .galleryItem {
+            width: 25vw;
+            height: 25vw;
+            background-color: #F5F5F5;
+            border-radius: 2vw;
+            flex-shrink: 0;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .galleryItem img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .galleryLabel {
+            position: absolute;
+            bottom: 1vw;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 0.5vw 2vw;
+            background-color: rgba(0,0,0,0.6);
+            color: white;
+            font-size: 2.5vw;
+            border-radius: 2vw;
+        }
+
+        .merchantPromise {
+            margin-top: 4vw;
+            padding-top: 4vw;
+            border-top: 1px solid #F5F5F5;
+        }
+
+        .promiseTitle {
+            font-size: 3.8vw;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 3vw;
+        }
+
+        .promiseItem {
+            display: flex;
+            align-items: center;
+            padding: 2.5vw 0;
+            border-bottom: 1px solid #F5F5F5;
+        }
+
+        .promiseItem:last-child {
+            border-bottom: none;
+        }
+
+        .promiseLabel {
+            font-size: 3.2vw;
+            color: #666;
+            width: 20vw;
+        }
+
+        .promiseContent {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            font-size: 3.2vw;
+            color: #333;
+        }
+
+        .promiseContent i {
+            color: #07C160;
+            margin-right: 1.5vw;
+        }
+
+        .reportBtn {
+            width: 100%;
+            padding: 3vw;
+            text-align: center;
+            color: #666;
+            font-size: 3.5vw;
+            margin-top: 4vw;
+            border: 1px solid #eee;
+            border-radius: 2vw;
+        }
+
+        /* 底部购物车 */
+        .cartFooter {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 18vw;
+            background-color: white;
+            display: flex;
+            align-items: center;
+            padding: 0 4vw;
+            box-shadow: 0 -2px 12px rgba(0,0,0,0.08);
+            z-index: 200;
+        }
+
+        .cartIconWrapper {
+            position: relative;
+            margin-right: 3vw;
+        }
+
+        .cartIcon {
+            width: 14vw;
+            height: 14vw;
+            background: linear-gradient(135deg, #FF9500, #FF6200);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 6vw;
+        }
+
+        .cartBadge {
+            position: absolute;
+            top: -1vw;
+            right: -1vw;
+            min-width: 5vw;
+            height: 5vw;
+            background-color: #FF4B5A;
+            color: white;
+            border-radius: 2.5vw;
+            font-size: 3vw;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 1vw;
+        }
+
+        .cartInfo {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .cartPrice {
+            display: flex;
+            align-items: baseline;
+        }
+
+        .cartPriceSymbol {
+            font-size: 3vw;
+            color: #FF6200;
+        }
+
+        .cartPriceValue {
+            font-size: 5vw;
+            font-weight: bold;
+            color: #FF6200;
+        }
+
+        .cartDelivery {
+            font-size: 2.8vw;
+            color: #999;
+            margin-top: 0.5vw;
+        }
+
+        .checkoutBtn {
+            padding: 3vw 6vw;
+            background: linear-gradient(135deg, #FFB74D, #FF9800);
+            border-radius: 5vw;
+            color: white;
+            font-size: 4vw;
+            font-weight: 500;
+        }
+
+        .checkoutBtn.disabled {
+            background: #ccc;
+        }
+
+        .promoBanner {
+            position: fixed;
+            bottom: 18vw;
+            left: 0;
+            width: 100%;
+            padding: 2vw 4vw;
+            background: linear-gradient(90deg, #FF6200, #FF4B5A);
+            color: white;
+            font-size: 3.2vw;
+            display: flex;
+            align-items: center;
+            z-index: 150;
+        }
+
+        .promoBanner i {
+            margin-right: 1.5vw;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <!-- 顶部店铺信息 -->
+        <div class="shopHeader">
+            <div class="shopBanner">
+                <div class="bannerContent">
+                    <div class="bannerText">
+                        <div class="bannerTitle">全国门店 1000+</div>
+                        <div class="bannerSubtitle">辣椒炒肉 系列一年热卖超</div>
+                        <div class="bannerStats">500万<span style="font-size: 4vw;">份</span></div>
+                    </div>
+                    <div class="bannerImage">
+                        <div class="foodIcon"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="shopInfo">
+                <div class="shopNameRow">
+                    <div class="shopName">霸碗盖码饭(昆明仕林街店)</div>
+                    <i class="fas fa-phone" style="color: #FF6200; font-size: 5vw;"></i>
+                </div>
+                <div class="shopTags">
+                    <span class="tag">品牌</span>
+                    <span class="tag">湘菜小炒 经典</span>
+                    <span class="tag">返红包</span>
+                </div>
+                <div class="shopStats">
+                    <div class="statItem">
+                        <div class="statValue">4.9</div>
+                        <div class="statLabel">评分</div>
+                    </div>
+                    <div class="statDivider"></div>
+                    <div class="statItem">
+                        <div class="statValue">5000+</div>
+                        <div class="statLabel">月售</div>
+                    </div>
+                    <div class="statDivider"></div>
+                    <div class="statItem">
+                        <div class="statValue">约22分钟</div>
+                        <div class="statLabel">蜂鸟准时达</div>
+                    </div>
+                    <div class="statDivider"></div>
+                    <div class="statItem">
+                        <div class="statValue" style="font-size: 3.5vw;">食无忧</div>
+                        <div class="statLabel">商家特色</div>
+                    </div>
+                </div>
+                <div class="deliveryRow">
+                    <div class="deliveryBtn">外送</div>
+                    <div class="deliveryInfo">自取 距您<span class="deliveryTime">4.7km</span></div>
+                    <div style="margin-left: auto; background-color: #FF6200; color: white; padding: 1vw 2vw; border-radius: 3vw; font-size: 2.8vw;">约快17分钟</div>
+                </div>
+                <div class="promotionRow">
+                    <div class="promoTag">
+                        <span class="icon">减</span>
+                        <span class="text">15减6、35减11、40减13</span>
+                    </div>
+                    <div class="promoTag">
+                        <span class="icon">爆</span>
+                        <span class="text">¥8</span>
+                    </div>
+                    <div class="promoTag receive">
+                        <span class="icon">¥</span>
+                        <span class="text">2元 领</span>
+                    </div>
+                    <div class="promoTag">
+                        <span class="icon">减</span>
+                        <span class="text">28减2</span>
+                    </div>
+                    <div class="promoTag">
+                        <span class="icon">送</span>
+                        <span class="text">配送费优惠</span>
+                    </div>
+                    <div class="promoTag">
+                        <span class="icon">特</span>
+                        <span class="text">特价商品</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 标签导航 -->
+        <div class="tabNav">
+            <div class="tab active" data-tab="order">点餐</div>
+            <div class="tab" data-tab="review">评价<span class="badge">437</span></div>
+            <div class="tab" data-tab="merchant">商家</div>
+        </div>
+
+        <!-- 点餐内容 -->
+        <div class="contentArea active" id="orderContent">
+            <div class="orderContent">
+                <!-- 左侧分类 -->
+                <div class="categorySidebar">
+                    <div class="categoryItem">宠粉福利</div>
+                    <div class="categoryItem active">
+                        热销
+                        <span class="badge">人气推荐</span>
+                    </div>
+                    <div class="categoryItem">
+                        优惠
+                        <span class="badge">爆款双拼</span>
+                    </div>
+                    <div class="categoryItem">
+                        尝先品鉴
+                        <span class="badge newTag">上新</span>
+                    </div>
+                    <div class="categoryItem">
+                        爆款三拼
+                        <span class="badge">豪华三拼</span>
+                    </div>
+                    <div class="categoryItem">招牌特色</div>
+                    <div class="categoryItem">现炒盖码</div>
+                    <div class="categoryItem">贴心无辣</div>
+                    <div class="categoryItem">小食时蔬</div>
+                    <div class="categoryItem">额外加饭</div>
+                </div>
+
+                <!-- 右侧菜品列表 -->
+                <div class="foodList">
+                    <div class="sectionTitle">
+                        宠粉福利
+                        <div style="display: flex; align-items: center; margin-top: 1vw;">
+                            <i class="fas fa-heart" style="color: #FFB74D; font-size: 3vw; margin-right: 1vw;"></i>
+                            <span style="font-size: 3vw; color: #999; font-weight: normal;">点击右上角 收藏专享</span>
+                        </div>
+                    </div>
+                    
+                    <div class="foodItem">
+                        <div class="foodImage">
+                            <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=200&h=200&fit=crop" alt="门店图片">
+                        </div>
+                        <div class="foodInfo">
+                            <div>
+                                <div class="foodName">"全国连锁-堂食门店" 看得见的外卖才能吃的安心~</div>
+                                <div class="foodDesc">单点不送</div>
+                            </div>
+                            <div class="foodPriceRow">
+                                <div class="priceInfo">
+                                    <div class="currentPrice">
+                                        <span class="priceSymbol">¥</span>
+                                        <span class="priceValue">0</span>
+                                    </div>
+                                </div>
+                                <div class="addBtn">
+                                    <i class="fas fa-plus"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="text-align: center; padding: 2vw; color: #999; font-size: 3vw;">
+                        查看不可售商品 <i class="fas fa-chevron-down"></i>
+                    </div>
+
+                    <div class="sectionTitle">
+                        热销
+                        <div class="sectionDesc">大家喜欢吃，才叫真好吃</div>
+                    </div>
+
+                    <div class="foodItem">
+                        <div class="foodImage">
+                            <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=200&h=200&fit=crop" alt="自选三拼">
+                        </div>
+                        <div class="foodInfo">
+                            <div>
+                                <div class="foodTags">
+                                    <span class="foodTag hot">招牌</span>
+                                    <span class="foodTag rank">自选三拼</span>
+                                </div>
+                                <div class="foodName">【自选三拼】两荤一素自选盖码饭</div>
+                                <div class="foodDesc">本店热销榜第1名</div>
+                                <div class="foodSales">近期83人给出好评</div>
+                            </div>
+                            <div class="foodPriceRow">
+                                <div class="priceInfo">
+                                    <div class="currentPrice">
+                                        <span class="priceSymbol">¥</span>
+                                        <span class="priceValue">29.8</span>
+                                        <span class="priceSuffix">起</span>
+                                    </div>
+                                </div>
+                                <div class="selectBtn">选套餐</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="foodItem">
+                        <div class="foodImage">
+                            <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=200&h=200&fit=crop" alt="豪华三拼">
+                        </div>
+                        <div class="foodInfo">
+                            <div>
+                                <div class="foodTags">
+                                    <span class="foodTag hot">招牌</span>
+                                    <span class="foodTag rank">招牌双荤任意拼</span>
+                                </div>
+                                <div class="foodName">【肉量满足】豪华三拼随心配盖码饭</div>
+                                <div class="foodDesc">本店热销榜第2名</div>
+                                <div class="foodSales">近期65人给出好评 · 月售1000+</div>
+                            </div>
+                            <div class="foodPriceRow">
+                                <div class="priceInfo">
+                                    <div class="originalPrice">¥50</div>
+                                    <div class="currentPrice">
+                                        <span class="priceSymbol">¥</span>
+                                        <span class="priceValue">21.8</span>
+                                        <span class="priceSuffix">起</span>
+                                        <span class="estimatePrice">预估到手</span>
+                                    </div>
+                                </div>
+                                <div class="selectBtn">选套餐</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="foodItem">
+                        <div class="foodImage">
+                            <img src="https://images.unsplash.com/photo-1512058564366-18510be2db19?w=200&h=200&fit=crop" alt="自选双拼">
+                        </div>
+                        <div class="foodInfo">
+                            <div>
+                                <div class="foodTags">
+                                    <span class="foodTag hot">招牌</span>
+                                    <span class="foodTag rank">自选双拼</span>
+                                </div>
+                                <div class="foodName">【自选双拼】多款经典任意拼</div>
+                                <div class="foodDesc">本店热销榜第3名</div>
+                                <div class="foodSales">近期30人给出好评 · 月售600+</div>
+                            </div>
+                            <div class="foodPriceRow">
+                                <div class="priceInfo">
+                                    <div class="originalPrice">¥40</div>
+                                    <div class="currentPrice">
+                                        <span class="priceSymbol">¥</span>
+                                        <span class="priceValue">18.8</span>
+                                        <span class="priceSuffix">起</span>
+                                        <span class="estimatePrice">预估到手</span>
+                                    </div>
+                                </div>
+                                <div class="selectBtn">选套餐</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="sectionTitle">卤蛋（搭配神器）</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 评价内容 -->
+        <div class="contentArea" id="reviewContent">
+            <div class="reviewContent">
+                <div class="reviewHeader">
+                    <div class="reviewScore">
+                        <div class="scoreValue">4.9</div>
+                        <div class="scoreInfo">
+                            <div class="scoreRank">附近米饭快餐品类前12%</div>
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="scoreDetail">
+                        <div class="scoreItem">
+                            <div class="scoreItemLabel">味道</div>
+                            <div class="scoreItemValue">4.9</div>
+                        </div>
+                        <div class="scoreItem">
+                            <div class="scoreItemLabel">包装</div>
+                            <div class="scoreItemValue">4.9</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="filterTags">
+                    <div class="filterTag active">全部 437</div>
+                    <div class="filterTag">附近同学评价 292</div>
+                    <div class="filterTag">推荐菜 74</div>
+                    <div class="filterTag">有图/视频 335</div>
+                </div>
+                <div class="filterTags">
+                    <div class="filterTag">最新</div>
+                    <div class="filterTag">回头客评价 281</div>
+                    <div class="filterTag">好吃 205</div>
+                    <div class="filterTag">分量很足 69</div>
+                    <div class="filterTag">配送速度很快 54</div>
+                </div>
+                <div class="filterTags">
+                    <div class="filterTag">性价比超高 25</div>
+                    <div class="filterTag">食材新鲜 20</div>
+                    <div class="filterTag">很下饭 19</div>
+                    <div class="filterTag">包装严实 17</div>
+                    <div class="filterTag">出餐快 10</div>
+                </div>
+
+                <div style="display: flex; align-items: center; padding: 2vw 0;">
+                    <i class="fas fa-check-circle" style="color: #FF6200; margin-right: 2vw;"></i>
+                    <span style="font-size: 3.2vw; color: #666;">只看有内容的评价</span>
+                </div>
+
+                <div class="aiReview">
+                    <div class="aiReviewHeader">
+                        <div class="aiIcon">AI</div>
+                        <div class="aiTitle">AI智能评价官</div>
+                        <div class="aiSubtitle">AI总结100条真实评价生成</div>
+                        <div style="margin-left: auto; display: flex; gap: 4vw;">
+                            <i class="far fa-thumbs-up" style="color: #999; font-size: 4vw;"></i>
+                            <i class="far fa-thumbs-down" style="color: #999; font-size: 4vw;"></i>
+                        </div>
+                    </div>
+                    <div class="aiContent">
+                        店铺以其分量足、口味正赢得食客喜爱。顾客盛赞菜品丰富、营养均衡，尤其推荐双拼饭与爆炒猪肝盖码饭，口感层次分明，令人回味无穷。尽管少量评论提及部分菜品偏重口味，整体仍是高性价比之选。
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 商家内容 -->
+        <div class="contentArea" id="merchantContent">
+            <div class="merchantContent">
+                <div class="merchantName">霸碗盖码饭(昆明仕林街店)</div>
+                
+                <div class="merchantInfoItem">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div class="merchantInfoText">云南省昆明市呈贡区吴家营街道办事处仕林街B区B-1-10B <i class="fas fa-chevron-right"></i></div>
+                </div>
+                
+                <div class="merchantInfoItem">
+                    <i class="fas fa-clock"></i>
+                    <div class="merchantInfoText">周一至周日 10:00-23:50</div>
+                </div>
+
+                <div class="imageGallery">
+                    <div class="galleryItem">
+                        <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=200&h=200&fit=crop" alt="门面">
+                        <div class="galleryLabel">门面</div>
+                    </div>
+                    <div class="galleryItem">
+                        <img src="https://images.unsplash.com/photo-1552566495-656145a3deb0?w=200&h=200&fit=crop" alt="大堂">
+                        <div class="galleryLabel">大堂</div>
+                    </div>
+                    <div class="galleryItem">
+                        <img src="https://images.unsplash.com/photo-1556910129-1248997d9219?w=200&h=200&fit=crop" alt="后厨">
+                        <div class="galleryLabel">后厨</div>
+                    </div>
+                    <div class="galleryItem">
+                        <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=200&h=200&fit=crop" alt="其他">
+                        <div class="galleryLabel">其他</div>
+                    </div>
+                    <div class="galleryItem">
+                        <img src="https://images.unsplash.com/photo-1498837173118-d83427086a02?w=200&h=200&fit=crop" alt="食材采">
+                        <div class="galleryLabel">食材采</div>
+                    </div>
+                </div>
+
+                <div class="merchantPromise">
+                    <div class="promiseTitle">商家承诺</div>
+                    <div class="promiseItem">
+                        <div class="promiseLabel">食品安全</div>
+                        <div class="promiseContent">
+                            <i class="fas fa-check-circle"></i> 后厨实景
+                            <i class="fas fa-check-circle" style="margin-left: 3vw;"></i> 亮证经营
+                            <i class="fas fa-check-circle" style="margin-left: 3vw;"></i> 食无忧保障
+                            <i class="fas fa-chevron-right" style="margin-left: auto; color: #ccc;"></i>
+                        </div>
+                    </div>
+                    <div class="promiseItem">
+                        <div class="promiseLabel">基础服务</div>
+                        <div class="promiseContent">
+                            <i class="fas fa-check-circle"></i> 可堂食
+                        </div>
+                    </div>
+                </div>
+
+                <div class="reportBtn">举报商家</div>
+            </div>
+        </div>
+
+        <!-- 促销横幅 -->
+        <div class="promoBanner">
+            <i class="fas fa-fire"></i>
+            15减6、35减11、40减13...加购越多，红包越大！
+        </div>
+
+        <!-- 底部购物车 -->
+        <div class="cartFooter">
+            <div class="cartIconWrapper">
+                <div class="cartIcon">
+                    <i class="fas fa-shopping-bag"></i>
+                </div>
+            </div>
+            <div class="cartInfo">
+                <div class="cartPrice">
+                    <span class="cartPriceSymbol">¥</span>
+                    <span class="cartPriceValue">0</span>
+                </div>
+                <div class="cartDelivery">另需配送费约¥1-¥5</div>
+            </div>
+            <div class="checkoutBtn disabled">¥15起送</div>
+        </div>
+    </div>
+
+    <script>
+        // 标签切换
+        document.querySelectorAll('.tabNav .tab').forEach(tab => {
+            tab.addEventListener('click', function() {
+                // 移除所有active
+                document.querySelectorAll('.tabNav .tab').forEach(t => t.classList.remove('active'));
+                document.querySelectorAll('.contentArea').forEach(c => c.classList.remove('active'));
+                
+                // 添加当前active
+                this.classList.add('active');
+                const tabId = this.dataset.tab;
+                document.getElementById(tabId + 'Content').classList.add('active');
+            });
+        });
+
+        // 分类切换
+        document.querySelectorAll('.categoryItem').forEach(item => {
+            item.addEventListener('click', function() {
+                document.querySelectorAll('.categoryItem').forEach(i => i.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+
+        // 筛选标签切换
+        document.querySelectorAll('.filterTag').forEach(tag => {
+            tag.addEventListener('click', function() {
+                this.classList.toggle('active');
+            });
+        });
+
+        // 添加购物车动画
+        document.querySelectorAll('.addBtn').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                this.style.transform = 'scale(0.9)';
+                setTimeout(() => {
+                    this.style.transform = 'scale(1)';
+                }, 100);
+            });
+        });
+    </script>
+</body>
+</html>

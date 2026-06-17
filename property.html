@@ -14,11 +14,13 @@
 <div class="wrapper">
 
     <div class="header">
-        <div class="tab active">
+        <div id="tabRedPacket" class="tab active" style="flex:1" onclick="switchTab(1)">
             红包
             <span class="badge">24</span>
         </div>
-        <div class="tab">券</div>
+        <div id="tabTicket" class="tab" style="flex:1" onclick="switchTab(2)">券</div>
+        <div class="tab" style="flex:3">&nbsp;</div>
+        <div class="underline"></div>
     </div>
 
 
@@ -31,102 +33,126 @@
     </div>
 
     <div class="main">
-        <div class="red-packet-list">
+        <div id="RedPacketList"  class="RedPacketList">
             <!-- 购物爆红包 -->
-            <div class="red-packet-item">
-                <div class="packet-header">
-                    <div class="expire-tag">将到期</div>
-                    <div class="packet-icon">
+            <div class="RedPacketItem">
+                <div class="packetHeader">
+                    <div class="expireTag">将到期</div>
+                    <div class="packetIcon">
                         <i class="fas fa-yen-sign"></i>
                     </div>
-                    <div class="packet-info">
-                        <div class="packet-name">购物爆红包</div>
-                        <div class="packet-expire">今日23:59 到期</div>
+                    <div class="packetInfo">
+                        <div class="packetName">购物爆红包</div>
+                        <div class="packetExpire">今日23:59 到期</div>
                     </div>
-                    <div class="packet-amount">
-                        <div class="amount-value">¥15</div>
-                        <div class="amount-condition">满15可用</div>
+                    <div class="packetAmount">
+                        <div class="amountValue">
+                            <div class="yenSign">¥</div>
+                            <div>15</div>
+                        </div>
+                        <div class="amountCondition">满15可用</div>
                     </div>
                 </div>
-                <div class="packet-footer">
+                <div class="packetFooter">
                     <span>实付金额不低于0.01元</span>
                     <i class="fas fa-chevron-down"></i>
                 </div>
             </div>
 
             <!-- 买药新客红包 -->
-            <div class="red-packet-item">
-                <div class="packet-header">
-                    <div class="expire-tag">将到期</div>
-                    <div class="packet-icon">
+            <div class="RedPacketItem">
+                <div class="packetHeader">
+                    <div class="expireTag">将到期</div>
+                    <div class="packetIcon">
                         <i class="fas fa-yen-sign"></i>
                     </div>
-                    <div class="packet-info">
-                        <div class="packet-name">买药新客红包</div>
-                        <div class="packet-expire">今日23:59 到期</div>
+                    <div class="packetInfo">
+                        <div class="packetName">买药新客红包</div>
+                        <div class="packetExpire">今日23:59 到期</div>
                     </div>
-                    <div class="packet-amount">
-                        <div class="amount-value">¥6</div>
-                        <div class="amount-condition">满10可用</div>
+                    <div class="packetAmount">
+                        <div class="amountValue">¥6</div>
+                        <div class="amountCondition">满10可用</div>
                     </div>
                 </div>
-                <div class="packet-footer">
+                <div class="packetFooter">
                     <span>满10元可用（使用门槛=商品现价+打包费-所有店铺优惠）</span>
                     <i class="fas fa-chevron-down"></i>
                 </div>
             </div>
 
             <!-- 爆红包10元 -->
-            <div class="red-packet-item">
-                <div class="packet-header">
-                    <div class="expire-tag">将到期</div>
-                    <div class="packet-icon">
+            <div class="RedPacketItem">
+                <div class="packetHeader">
+                    <div class="expireTag">将到期</div>
+                    <div class="packetIcon">
                         <i class="fas fa-yen-sign"></i>
                     </div>
-                    <div class="packet-info">
-                        <div class="packet-name">爆红包</div>
-                        <div class="packet-expire">今日23:59 到期</div>
+                    <div class="packetInfo">
+                        <div class="packetName">爆红包</div>
+                        <div class="packetExpire">今日23:59 到期</div>
                     </div>
-                    <div class="packet-amount">
-                        <div class="amount-value">¥10</div>
-                        <div class="amount-condition">满35可用</div>
+                    <div class="packetAmount">
+                        <div class="amountValue">¥10</div>
+                        <div class="amountCondition">满35可用</div>
                     </div>
                 </div>
-                <div class="packet-footer">
+                <div class="packetFooter">
                     <span>满35元可用（使用门槛=商品现价+打包费-所有店铺优惠）</span>
                     <i class="fas fa-chevron-down"></i>
                 </div>
             </div>
 
             <!-- 爆红包7元 -->
-            <div class="red-packet-item">
-                <div class="packet-header">
-                    <div class="expire-tag">将到期</div>
-                    <div class="packet-icon">
+            <div class="RedPacketItem">
+                <div class="packetHeader">
+                    <div class="expireTag">将到期</div>
+                    <div class="packetIcon">
                         <i class="fas fa-yen-sign"></i>
                     </div>
-                    <div class="packet-info">
-                        <div class="packet-name">爆红包</div>
-                        <div class="packet-expire">今日23:59 到期</div>
+                    <div class="packetInfo">
+                        <div class="packetName">爆红包</div>
+                        <div class="packetExpire">今日23:59 到期</div>
                     </div>
-                    <div class="packet-amount">
-                        <div class="amount-value">¥7</div>
-                        <div class="amount-condition">满25可用</div>
+                    <div class="packetAmount">
+                        <div class="amountValue">¥7</div>
+                        <div class="amountCondition">满25可用</div>
                     </div>
                 </div>
-                <div class="packet-footer">
+                <div class="packetFooter">
                     <span>满25元可用（使用门槛=商品现价+打包费-所有店铺优惠）</span>
                     <i class="fas fa-chevron-down"></i>
                 </div>
             </div>
         </div>
+        <div class="TicketList" id="TicketList">
+            <div class="emptyState">
+                <div class="emptyIcon">
+                    <div class="doc">
+                        <div class="lines">
+                            <div class="line"></div>
+                            <div class="line"></div>
+                            <div class="line"></div>
+                            <div class="line"></div>
+                        </div>
+                    </div>
+                    <i class="fas fa-star sparkle"></i>
+                    <i class="fas fa-star sparkle small"></i>
+                </div>
+                <div class="emptyTitle">没有可用券</div>
+                <div class="emptySubtitle">诶嘿，居然一张券都没有</div>
+            </div>
+        </div>
     </div>
 
     <!-- 底部导航 -->
-    <div class="footer">
+    <div class="footer footer-redpacket active" id="footerRedPacket">
         <div>历史红包</div>
         <div>兑换码</div>
         <div>领红包</div>
+    </div>
+    <div class="footer footerTicket" id="footerTicket">
+        <div>历史券</div>
     </div>
 </div>
 </body>
