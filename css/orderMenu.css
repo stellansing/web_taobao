@@ -19,7 +19,7 @@ body {
     top: 0;
     left: 0;
     width: 100%;
-    height: 12vw;
+    height: 13vw;
     background-color: transparent;
     display: flex;
     align-items: center;
@@ -40,6 +40,35 @@ body {
     font-size: 4.5vw;
     color: #333;
     margin-right: 12vw;
+}
+
+.navMiniTab {
+    display: flex;
+    height: 6vw;
+    border: 1px solid rgba(255, 98, 0, 0.2);
+    border-radius: 1vw;
+    overflow: hidden;
+    opacity: 0;
+    margin-left: 2vw;
+    margin-right: auto;
+}
+
+.navMiniTab .miniTabItem {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.8vw;
+    color: black;
+    padding: 0 3vw;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    border-radius: 1vw;
+    white-space: nowrap;
+}
+
+.navMiniTab .miniTabItem.active {
+    background-color: rgba(255, 98, 0, 0.2);
+    font-weight: 500;
 }
 
 .shopHeader {
@@ -353,6 +382,7 @@ body {
 .goodsList {
     flex: 1;
     padding: 0 3vw;
+    margin-bottom: 18vw;
 }
 
 .benefitTip {
@@ -370,6 +400,7 @@ body {
 }
 
 .goodsItem {
+    width: 100%;
     display: flex;
     padding: 3vw 0;
     border-bottom: 1px solid #f5f5f5;
@@ -379,13 +410,13 @@ body {
 
 .goodsImg {
     position: relative;
-    width: 22vw;
-    height: 22vw;
+    width: 26vw;
+    height: auto;
 }
 
 .goodsImg img {
     width: 100%;
-    height: 100%;
+    height: auto;
     border-radius: 2vw;
     object-fit: cover;
 }
@@ -415,33 +446,23 @@ body {
     color: #333;
 }
 
-.goodsRank {
-    font-size: 3vw;
-    color: #ff8c00;
-    margin-bottom: 0.5vw;
-}
-
-.goodsComment {
-    font-size: 2.8vw;
-    color: #999;
-    margin-bottom: 0.5vw;
-}
 
 .goodsSales {
-    font-size: 2.8vw;
+    font-size: 3.2vw;
     color: #999;
     margin-bottom: 1vw;
 }
 
-.goodsDiscount {
+.goodsOtherInfo {
     display: inline-block;
-    border: 1px solid #ff6b00;
-    color: #ff6b00;
+    color: rgb(254, 113, 0);
     font-size: 2.8vw;
-    padding: 0.2vw 1.5vw;
+    padding: 0.4vw 1.5vw;
     border-radius: 1vw;
     margin-bottom: 1vw;
+    margin-top: 1vw;
     width: fit-content;
+    background-color: rgba(254, 113, 0, 0.1);
 }
 
 .goodsTag {
@@ -462,15 +483,13 @@ body {
 }
 
 .currentPrice {
-    font-size: 4.5vw;
+    font-size: 4vw;
     font-weight: bold;
     color: #ff4b4b;
 }
-
-.originPrice {
-    font-size: 3vw;
-    color: #999;
-    text-decoration: line-through;
+.originalPrice {
+    font-size: 4vw;
+    color: black;
 }
 
 .selectBtn {
@@ -496,9 +515,9 @@ body {
 }
 
 .estimateTag {
-    font-size: 2.8vw;
-    color: #ff4b4b;
-    background-color: #fff1f0;
+    font-size: 2.5vw;
+    color: white;
+    background-color: #ff5f42;
     padding: 0.2vw 1vw;
     border-radius: 0.5vw;
 }
@@ -525,13 +544,15 @@ body {
     color: #999;
     font-size: 3vw;
     cursor: pointer;
+    margin-bottom: 2vw;
 }
 
 
 
 .CommentPanel {
     flex-direction: column;
-    padding: 0 3vw;
+    padding: 0 2vw;
+    margin-bottom: 18vw;
 }
 
 .commentHeader {
@@ -557,7 +578,7 @@ body {
 
 .scoreDesc p {
     font-size: 3vw;
-    color: #666;
+    color: black;
     margin-bottom: 1vw;
 }
 
@@ -568,26 +589,29 @@ body {
 
 .scoreDetail {
     display: flex;
-    flex-direction: column;
-    gap: 2vw;
+    flex-direction: row;
+    gap: 6vw;
+    margin-right: 8vw;
 }
 
 .scoreItem {
     display: flex;
+    flex-direction: column;
     gap: 2vw;
     font-size: 3.2vw;
-    color: #666;
+    color: #8f8f8f;
 }
 
 .scoreNum {
-    color: #333;
+    color: black;
     font-weight: 500;
+    font-size: 4vw;
 }
 
 .commentTabBar {
     display: flex;
     overflow-x: auto;
-    padding: 3vw 0;
+    padding: 1vw 0;
     gap: 4vw;
     border-bottom: 1px solid #f5f5f5;
 }
@@ -599,9 +623,10 @@ body {
 .commentTab {
     flex-shrink: 0;
     font-size: 3.5vw;
-    color: #666;
     position: relative;
     cursor: pointer;
+    color: black;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .commentTab.active {
@@ -611,7 +636,6 @@ body {
 
 .commentTab .tabCount {
     font-size: 2.8vw;
-    color: #999;
     margin-left: 0.5vw;
 }
 
@@ -621,11 +645,11 @@ body {
     gap: 2vw;
     padding: 3vw 0;
     border-bottom: 1px solid #f5f5f5;
+    color: black;
 }
 
 .tagItem {
     background-color: #f5f5f5;
-    color: #666;
     padding: 1.5vw 3vw;
     border-radius: 4vw;
     font-size: 3vw;
@@ -635,7 +659,6 @@ body {
 .commentFilter {
     padding: 2vw 0;
     font-size: 3.2vw;
-    color: #666;
 }
 
 .commentFilter input {
@@ -646,14 +669,13 @@ body {
 .aiSummary {
     background-color: #f8f9ff;
     border-radius: 2vw;
-    padding: 3vw;
+    padding: 1vw;
     margin: 3vw 0;
 }
 
 .aiHeader {
     display: flex;
     align-items: center;
-    margin-bottom: 2vw;
 }
 
 .aiLogo {
@@ -673,10 +695,10 @@ body {
     flex: 1;
 }
 
-.aiTitle h4 {
-    font-size: 3.5vw;
+.aiTitle div {
+    font-size: 4vw;
     color: #333;
-    margin-bottom: 0.5vw;
+    margin-bottom: -2vw;
 }
 
 .aiTitle p {
@@ -687,6 +709,7 @@ body {
 .aiActions {
     display: flex;
     gap: 3vw;
+    margin-right: 3vw;
 }
 
 .aiActions button {
@@ -703,33 +726,184 @@ body {
     line-height: 1.6;
 }
 
-/* ========== 商家面板 ========== */
+.commentList {
+    width: 100%;
+    padding: 3vw 0;
+}
+
+.commentItem {
+    width: 100%;
+    padding-bottom: 4vw;
+    border-bottom: 1px solid #f5f5f5;
+    margin-bottom: 4vw;
+}
+.commentItem:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+/* 用户信息区 */
+.commentUser {
+    display: flex;
+    align-items: center;
+    gap: 2vw;
+    margin-bottom: 2.5vw;
+    position: relative;
+}
+
+.userAvatar {
+    width: 10vw;
+    height: 10vw;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+    background-color: #f5f5f5;
+}
+
+.userInfo {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8vw;
+}
+
+.userNameRow {
+    display: flex;
+    align-items: center;
+    gap: 1.5vw;
+    flex-wrap: wrap;
+}
+
+.userName {
+    font-size: 3.8vw;
+    font-weight: 500;
+    color: #333;
+}
+
+.userLevel {
+    font-size: 2.8vw;
+    color: #3399ff;
+    padding: 0.2vw 1.2vw;
+    border-radius: 1vw;
+    background-color: rgba(51, 153, 255, 0.1);
+}
+
+.userTag {
+    font-size: 2.8vw;
+    color: #fff;
+    background: linear-gradient(90deg, #ff9a3c 0%, #ff6b00 100%);
+    padding: 0.3vw 1.5vw;
+    border-radius: 1vw;
+}
+
+.commentDate {
+    font-size: 3vw;
+    color: #999;
+}
+
+.commentMore {
+    font-size: 6vw;
+    color: #ccc;
+    margin-right: 3vw;
+}
+
+/* 评分行 */
+.commentScore {
+    display: flex;
+    align-items: center;
+    gap: 2vw;
+    margin-bottom: 2vw;
+    flex-wrap: wrap;
+    font-size: 3.2vw;
+    color: #666;
+}
+
+.commentScore .stars {
+    font-size: 3.5vw;
+    color: #ff6b00;
+}
+
+/* 评价内容 */
+.commentContent {
+    font-size: 3.6vw;
+    color: #333;
+    line-height: 1.6;
+    margin-bottom: 2.5vw;
+}
+
+/* 评价图片 */
+.commentImgs {
+    display: flex;
+    gap: 2vw;
+    flex-wrap: wrap;
+    margin-bottom: 3vw;
+}
+
+.commentImg {
+    width: 40vw;
+    height: auto;
+    border-radius: 2vw;
+    object-fit: cover;
+    background-color: #f5f5f5;
+}
+
+/* 商家回复 */
+.shopReply {
+    background-color: #f8f8f8;
+    border-radius: 2vw;
+    padding: 3vw;
+    position: relative;
+}
+
+.replyTitle {
+    font-size: 3.5vw;
+    font-weight: 500;
+    color: #333;
+    margin-bottom: 1.5vw;
+}
+
+.replyContent {
+    font-size: 3.2vw;
+    color: #666;
+    line-height: 1.6;
+}
+
+.replyMore {
+    position: absolute;
+    top: 0;
+    right: 3vw;
+    font-size: 6vw;
+    color: #ccc;
+}
+
 .ShopPanel {
     flex-direction: column;
-    padding: 0 3vw;
+    padding: 0 1vw;
+    margin-bottom: 18vw;
+    background-color: #f5f5f5;
 }
 
 .shopInfoCard {
     background-color: #fff;
     border-radius: 2vw;
-    padding: 3vw;
+    padding: 0 3vw;
     margin: 3vw 0;
+    gap: 0;
 }
 
 .shopTitle {
-    font-size: 4.5vw;
+    font-size: 4vw;
     font-weight: bold;
-    margin-bottom: 3vw;
+    margin-bottom: 1vw;
 }
 
 .infoItem {
     display: flex;
     align-items: flex-start;
     gap: 2vw;
-    padding: 2vw 0;
+    padding: 1vw 0;
     font-size: 3.2vw;
     color: #666;
-    line-height: 1.5;
 }
 
 .infoItem > i:first-child {
@@ -765,12 +939,13 @@ body {
     height: 20vw;
     border-radius: 1.5vw;
     object-fit: cover;
-    margin-bottom: 1vw;
 }
 
 .albumItem p {
-    font-size: 2.8vw;
+    font-size: 3vw;
     color: #666;
+    padding: 0;
+    margin: 0;
 }
 
 .shopPromise {
@@ -780,7 +955,7 @@ body {
     margin-bottom: 3vw;
 }
 
-.shopPromise h3 {
+.shopPromise .promiseText {
     font-size: 4vw;
     font-weight: bold;
     margin-bottom: 3vw;
@@ -794,7 +969,7 @@ body {
     margin-bottom: 0;
 }
 
-.promiseGroup h4 {
+.promiseGroup .promiseTag {
     font-size: 3.5vw;
     color: #333;
     margin-bottom: 2vw;
@@ -925,6 +1100,7 @@ body {
     font-size: 4vw;
     font-weight: 500;
     cursor: pointer;
+    margin-right: 5vw;
 }
 
 .submitBtn.disabled {

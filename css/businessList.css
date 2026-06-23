@@ -112,7 +112,7 @@
     margin-top: 2vw;
     margin-bottom: 2vw;
     width: 100%;
-    height: 45vw;
+    height: 55vw;
     border-radius: 8px;
     background-color: white;
     padding: 3vw;
@@ -210,17 +210,17 @@
     font-size: 4vw;
 }
 .main .orderItemFoot div{
-    height: 75%;
-    width: 20vw;
+    padding: 2vw 3vw;
     margin: 2vw 2vw 2vw auto;
-    background-color: #EFF4F8;
+    background-color: #FFEFE5;
+    color: #FF6200;
     border-radius: 1vw;
-    font-size: 4vw;
+    font-size: 3.5vw;
     display: flex;
     justify-content: center;
     align-items: center;
     font-weight: bold;
-    font-family: "Yu Gothic", serif;
+    font-family: "PingFang SC";
 }
 .orderGoing .orderItemTopSituation{
     background-color: white;
@@ -267,6 +267,58 @@
     color: #0FAD50;
 }
 .orderGoing .orderItemPrice{
+    display: flex;
+    flex-direction: column;
+    font-size: 3vw;
+    margin-left: auto;
+    gap: 1vw;
+}
+
+/* 全部标签中订单项使用与进行中一致的样式 */
+.orderAll .orderItem{
+    height: 40vw;
+}
+.orderAll .orderItemTopSituation{
+    background-color: white;
+    color: #FF4A35;
+    display: flex;
+}
+.orderAll .orderItemTopTime{
+    color: #FF4A35;
+    font-weight: normal;
+    font-size: 3.3vw;
+}
+.orderAll .orderItemMain{
+    margin-top: 1vw;
+    width: 90%;
+    height: 20vw;
+}
+.orderAll .orderItemImage{
+    width: 60%;
+    height: 100%;
+}
+.orderAll .orderItemImage img{
+    width: 20vw;
+    height: auto;
+}
+.orderAll .orderItemImage .orderItemDetailInfo{
+    display: flex;
+    flex-direction: column;
+    margin-left: 2vw;
+    gap: 2vw;
+    align-items: flex-start;
+    font-size: 3vw;
+    width: 40vw;
+    height: 100%;
+}
+.orderAll .orderItemImage .orderItemDetailInfoName{
+    font-size: 4vw;
+    font-weight: bold;
+}
+.orderAll .orderItemImage .orderItemDetailInfoTag{
+    color: #0FAD50;
+}
+.orderAll .orderItemPrice{
     display: flex;
     flex-direction: column;
     font-size: 3vw;

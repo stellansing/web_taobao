@@ -1,0 +1,482 @@
+/* 全局样式 */
+.wrapper {
+    width: 100%;
+    min-height: 100vh;
+    background-color: #F3F6F8;
+    font-family: "PingFang SC", "Yu Gothic", serif;
+}
+
+/* 顶部商品图区域 */
+.productHeader {
+    position: relative;
+    width: 100%;
+    height: 80vw;
+    background: linear-gradient(180deg, #FF8C00 0%, #FFB347 100%);
+    overflow: hidden;
+}
+
+.backBtn {
+    position: absolute;
+    top: 4vw;
+    left: 3vw;
+    width: 8vw;
+    height: 8vw;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+}
+
+.backBtn i {
+    color: white;
+    font-size: 4vw;
+}
+
+
+.productImage {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.productImage img {
+    width: 100%;
+    height: auto;
+}
+
+/* 商品信息区域 */
+.productInfo {
+    background-color: white;
+    margin-top: -4vw;
+    padding: 4vw;
+    position: relative;
+    z-index: 5;
+}
+
+.priceArea {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2vw;
+}
+
+.priceLeft {
+    display: flex;
+    align-items: baseline;
+    gap: 2vw;
+}
+
+.currentPrice {
+    display: flex;
+    font-weight: bold;
+    color: #FF352E;
+}
+.priceTag {
+    margin-top: 2vw;
+    font-size: 4vw;
+}
+.currentPriceNum{
+    font-size: 7vw;
+}
+.originalPrice {
+    font-size: 3.5vw;
+    color: #9CA4AD;
+    text-decoration: line-through;
+}
+
+.discountTag {
+    font-size: 3vw;
+    color: #FF352E;
+    background-color: #FFEBE9;
+    padding: 0.5vw 1.5vw;
+    border-radius: 1vw;
+    font-weight: 500;
+}
+
+.priceRight {
+    display: flex;
+    align-items: center;
+}
+
+.saveMoney {
+    font-size: 3.5vw;
+    color: #FF352E;
+    font-weight: 500;
+}
+
+.productTitle {
+    font-size: 5vw;
+    font-weight: bold;
+    color: #111920;
+    line-height: 1.4;
+    margin-bottom: 2vw;
+}
+
+.plusIcon {
+    color: #6B4DFF;
+    font-weight: bold;
+}
+
+.productStats {
+    display: flex;
+    align-items: center;
+    font-size: 3.2vw;
+    color: #9CA4AD;
+    gap: 2vw;
+}
+
+.productStats .divider {
+    width: 1px;
+    height: 3vw;
+    background-color: #E5E8EC;
+}
+
+.addCartBtn {
+    margin-left: auto;
+    background-color: #FF6200;
+    color: white;
+    padding: 2vw 4vw;
+    border-radius: 1vw;
+    font-size: 3.5vw;
+    font-weight: 700;
+}
+
+/* 标签切换 */
+.tabMenu {
+    display: flex;
+    background-color: #F3F6F8;
+    margin-top: 3vw;
+    margin-left: 5vw;
+    padding-top: 2vw;
+    border-top: 1px solid #F3F6F8;
+}
+
+.tabItem {
+    position: relative;
+    cursor: pointer;
+    padding: 2vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    -webkit-tap-highlight-color: transparent;
+}
+
+.tabItem .tabText {
+    text-align: center;
+    font-size: 4.5vw;
+    font-weight: bold;
+    color: #9CA4AD;
+    transition: color 0.3s ease;
+}
+
+.tabItem.active .tabText {
+    color: #111920;
+}
+
+.tabItem .tabCount {
+    font-size: 3.5vw;
+    color: #9CA4AD;
+    margin-left: 0.5vw;
+    margin-top: -3vw;
+}
+.tabItem .tabUnderline {
+    position: absolute;
+    bottom: 0;
+    width: 4vw;
+    height: 2px;
+    background-color: #FF6200;
+    transition: all 0.3s ease;
+    border-radius: 1vw;
+}
+
+.tabItem.active .tabUnderline {
+    width: 50%;
+}
+
+/* 内容区域 */
+.mainContent {
+    background-color: #F3F6F8;
+    padding-bottom: 20vw;
+}
+
+.detailContent,
+.reviewContent {
+    display: none;
+}
+
+.detailContent.active,
+.reviewContent.active {
+    display: block;
+}
+
+/* 详情内容 */
+.detailSection {
+    background-color: white;
+    margin: 2vw 3vw;
+    border-radius: 2vw;
+    padding: 4vw 3vw;
+}
+
+.detailTitle {
+    font-size: 4.5vw;
+    font-weight: bold;
+    color: #111920;
+    margin-bottom: 3vw;
+}
+
+.detailList {
+    display: flex;
+    flex-direction: column;
+    gap: 3vw;
+    font-weight: 700;
+}
+
+.detailItem {
+    display: flex;
+    font-size: 3.5vw;
+}
+
+.detailLabel {
+    color: #9CA4AD;
+    width: 20vw;
+    flex-shrink: 0;
+}
+
+.detailValue {
+    color: #111920;
+    flex: 1;
+}
+
+/* 评价内容 */
+.reviewHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 4vw 3vw;
+    background-color: white;
+    margin-top: 2vw;
+    border-radius: 3vw;
+}
+
+.reviewTitle {
+    font-size: 4.5vw;
+    font-weight: bold;
+    color: #111920;
+}
+
+.reviewTotal {
+    font-size: 3.5vw;
+    color: #9CA4AD;
+    display: flex;
+    align-items: center;
+}
+
+.reviewTotal .arrow {
+    margin-left: 1vw;
+    font-size: 3vw;
+    margin-top: -1vw;
+}
+
+.reviewTags {
+    display: flex;
+    gap: 4vw;
+    padding: 0 3vw 3vw;
+    background-color: white;
+}
+
+.reviewTag {
+    font-size: 3.5vw;
+    color: #50607A;
+    padding: 1.5vw 3vw;
+    border-radius: 1vw;
+    background-color: #F3F6F8;
+}
+
+.reviewTag.active {
+    color: #FF6200;
+    background-color: #FFF0E5;
+}
+
+.reviewList {
+    background-color: white;
+    padding: 0 3vw;
+    border-radius: 3vw;
+}
+
+.reviewItem {
+    padding: 4vw 0;
+    border-bottom: 1px solid #F3F6F8;
+}
+
+.reviewItem:last-child {
+    border-bottom: none;
+}
+
+.reviewUserInfo {
+    display: flex;
+    align-items: center;
+    margin-bottom: 3vw;
+}
+
+.userAvatar {
+    width: 10vw;
+    height: 10vw;
+    border-radius: 50%;
+    margin-right: 2vw;
+}
+
+.userInfo {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1vw;
+}
+
+.userName {
+    font-size: 4vw;
+    font-weight: 500;
+    color: #111920;
+    display: flex;
+    align-items: center;
+}
+
+.userLevel {
+    font-size: 2.5vw;
+    color: white;
+    background: linear-gradient(90deg, #FFD700 0%, #FFA500 100%);
+    padding: 0.5vw 1.5vw;
+    border-radius: 1vw;
+    margin-left: 2vw;
+    font-weight: 500;
+}
+
+.reviewDate {
+    font-size: 3vw;
+    color: #9CA4AD;
+}
+
+.moreBtn {
+    color: #9CA4AD;
+    font-size: 4vw;
+    padding: 2vw;
+}
+
+.reviewContentText {
+    font-size: 3.8vw;
+    color: #111920;
+    line-height: 1.6;
+    margin-bottom: 3vw;
+}
+
+.reviewImages {
+    margin-bottom: 3vw;
+}
+
+.reviewImages img {
+    width: 40vw;
+    height: auto;
+    border-radius: 2vw;
+}
+
+.reviewFooter {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 3vw;
+    color: #9CA4AD;
+}
+
+.likeInfo {
+    display: flex;
+    align-items: center;
+    gap: 1.5vw;
+}
+
+.usefulBtn {
+    display: flex;
+    align-items: center;
+    gap: 1vw;
+}
+
+/* 底部占位 */
+.bottomPlaceholder {
+    height: 25vw;
+}
+
+/* 底部栏 */
+.bottomBar {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: white;
+    z-index: 100;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.couponInfo {
+    padding: 2vw 3vw;
+    font-size: 3.2vw;
+    color: #FF352E;
+    display: flex;
+    gap: 3vw;
+    background-color: #FFF5F0;
+}
+
+.couponItem {
+    font-weight: 500;
+}
+
+.deliveryInfo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2vw 3vw;
+}
+
+.deliveryLeft {
+    display: flex;
+    align-items: center;
+    gap: 2vw;
+}
+
+.flashIcon {
+    width: 10vw;
+    height: auto;
+}
+
+.deliveryPrice {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5vw;
+}
+
+.priceZero {
+    font-size: 5vw;
+    font-weight: bold;
+    color: #111920;
+}
+
+.deliveryDesc {
+    font-size: 2.8vw;
+    color: #9CA4AD;
+}
+
+.deliveryRight {
+    display: flex;
+    align-items: center;
+}
+
+.deliveryBtn {
+    background-color: #FF6200;
+    color: white;
+    padding: 2.5vw 6vw;
+    border-radius: 5vw;
+    font-size: 4vw;
+    font-weight: 500;
+}

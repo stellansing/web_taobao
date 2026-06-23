@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="node_modules/normalize.css/normalize.css">
+    <link rel="stylesheet" href="node_modules/@fortawesome/fontawesome-free/css/all.css">
+    <link rel="stylesheet" href="css/globle.css">
+    <title>商品详情</title>
+    <link rel="stylesheet" href="css/productDetail.css">
+    <script src="js/productDetail.js"></script>
+</head>
+<body>
+<div class="wrapper">
+    <!-- 顶部商品图 -->
+    <div class="productHeader">
+        <div class="backBtn">
+            <i class="fa-solid fa-chevron-left"></i>
+        </div>
+        <div class="productImage">
+            <img src="image/productMain.jpg" alt="">
+        </div>
+    </div>
+
+
+
+    <!-- 内容区域 -->
+    <div class="mainContent">
+        <!-- 商品信息区域 -->
+        <div class="productInfo">
+            <div class="priceArea">
+                <div class="priceLeft">
+                <span class="currentPrice">
+                    <span class="priceTag">¥</span>
+                    <span class="currentPriceNum">23.6</span>
+                </span>
+                    <span class="originalPrice">¥23.8</span>
+                    <span class="discountTag">9.92折</span>
+                </div>
+                <div class="priceRight">
+                    <span class="saveMoney">约省0.2元</span>
+                </div>
+            </div>
+            <div class="productTitle">
+                【特惠冲量】秘制鸡公煲小份<span class="plusIcon">＋</span>米饭1份
+            </div>
+            <div class="productStats">
+                <span>月售47</span>
+                <span class="divider"></span>
+                <span>好评率 100%</span>
+                <div class="addCartBtn">+ 加入购物车</div>
+            </div>
+
+        </div>
+        <!-- 标签切换 -->
+        <div class="tabMenu">
+            <div id="tabDetail" class="tabItem active" onclick="switchTab(1)">
+                <span class="tabText">详情</span>
+                <div class="tabUnderline"></div>
+            </div>
+            <div id="tabReview" class="tabItem" onclick="switchTab(2)">
+                <span class="tabText">评价</span>
+                <span class="tabCount">35</span>
+            </div>
+        </div>
+        <!-- 详情内容 -->
+        <div class="detailContent" id="detailContent">
+            <div class="detailSection">
+                <div class="detailTitle">商品详情</div>
+                <div class="detailList">
+                    <div class="detailItem">
+                        <span class="detailLabel">原料</span>
+                        <span class="detailValue">鸡肉</span>
+                    </div>
+                    <div class="detailItem">
+                        <span class="detailLabel">份量</span>
+                        <span class="detailValue">1人份</span>
+                    </div>
+                    <div class="detailItem">
+                        <span class="detailLabel">荤素</span>
+                        <span class="detailValue">荤菜</span>
+                    </div>
+                    <div class="detailItem">
+                        <span class="detailLabel">菜系</span>
+                        <span class="detailValue">川菜</span>
+                    </div>
+                    <div class="detailItem">
+                        <span class="detailLabel">制作方法</span>
+                        <span class="detailValue">煲</span>
+                    </div>
+                    <div class="detailItem">
+                        <span class="detailLabel">口味</span>
+                        <span class="detailValue">香辣</span>
+                    </div>
+                    <div class="detailItem">
+                        <span class="detailLabel">口感</span>
+                        <span class="detailValue">滑嫩</span>
+                    </div>
+                    <div class="detailItem">
+                        <span class="detailLabel">时段</span>
+                        <span class="detailValue">午餐、晚餐</span>
+                    </div>
+                    <div class="detailItem">
+                        <span class="detailLabel">辣度</span>
+                        <span class="detailValue">微微辣,微辣,中辣,特辣,微中辣</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 评价内容 -->
+        <div class="reviewContent" id="reviewContent">
+            <div class="reviewHeader">
+                <div class="reviewTitle">商品评价</div>
+                <div class="reviewTotal">35条评价<span class="arrow">></span></div>
+            </div>
+            <div class="reviewTags">
+                <div class="reviewTag active">全部 35</div>
+                <div class="reviewTag">有图/视频 9</div>
+                <div class="reviewTag">最新</div>
+            </div>
+            <div class="reviewList">
+                <div class="reviewItem">
+                    <div class="reviewUserInfo">
+                        <img src="image/avatar.png" alt="" class="userAvatar">
+                        <div class="userInfo">
+                            <div class="userName">
+                                匿名用户
+                                <span class="userLevel">Lv1</span>
+                            </div>
+                            <div class="reviewDate">2026-05-06</div>
+                        </div>
+                        <div class="moreBtn">
+                            <i class="fa-solid fa-ellipsis"></i>
+                        </div>
+                    </div>
+                    <div class="reviewContentText">
+                        就那样，不好吃，一大推青椒和洋葱，而且没香味还死贵死贵
+                    </div>
+                    <div class="reviewImages">
+                        <img src="image/reviewImg.jpg" alt="">
+                    </div>
+                    <div class="reviewFooter">
+                        <div class="likeInfo">
+                            <span>TA点赞了该商品</span>
+                        </div>
+                        <div class="usefulBtn">
+                            <i class="fa-regular fa-thumbs-up"></i>
+                            <span>有用</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 底部占位 -->
+    <div class="bottomPlaceholder"></div>
+
+    <!-- 底部栏 -->
+    <div class="bottomBar">
+        <div class="couponInfo">
+            <span class="couponItem">35减1</span>
+            <span class="couponItem">45减2</span>
+            <span class="couponItem">55减3</span>
+        </div>
+        <div class="deliveryInfo">
+            <div class="deliveryLeft">
+                <img src="image/flashIcon.png" alt="" class="flashIcon">
+                <div class="deliveryPrice">
+                    <span class="priceZero">¥0</span>
+                    <span class="deliveryDesc">另需配送费约¥6.4 ¥8-5</span>
+                </div>
+            </div>
+            <div class="deliveryRight">
+                <span class="deliveryBtn">¥10起送</span>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
