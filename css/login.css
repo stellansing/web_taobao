@@ -1,0 +1,119 @@
+/* login.css */
+.wrapper {
+    width: 100%;
+    min-height: 100vh;
+    background-color: #FFFFFF;
+    font-family: "PingFang SC", sans-serif;
+    padding: 25vw 4vw 0;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* 输入框组 */
+.input-group {
+    width: 90%;
+    height: 10vw;
+    background-color: #F5F7FA;
+    border-radius: 2vw;
+    margin-bottom: 3vw;
+    display: flex;
+    align-items: center;
+    padding: 0 4vw;
+    box-sizing: border-box;
+}
+
+/* +86 下拉框前缀 */
+.input-group .prefix {
+    display: flex;
+    align-items: center;
+    font-size: 4.2vw;
+    color: #333;
+    padding-right: 4vw;
+    margin-right: 4vw;
+    border-right: 1px solid #E0E0E0;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.input-group .prefix i {
+    margin-left: 2vw;
+    font-size: 3vw;
+    color: #999;
+}
+
+/* 输入文本（手机号或验证码） */
+.input-group .input-text {
+    flex: 1;
+    font-size: 4.5vw;
+    color: #333;
+    letter-spacing: 1px;
+    font-weight: 500;
+}
+
+/* 验证码右侧倒计时 */
+.input-group .right-action {
+    color: #FF6200;
+    font-size: 3.8vw;
+    font-weight: 500;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* 登录按钮 */
+.submit-btn {
+    width: 90%;
+    height: 10vw;
+    background-color: #FF6200;
+    color: #FFFFFF;
+    font-size: 4.5vw;
+    border: none;
+    border-radius: 2vw;
+    margin-top: 5vw;
+    font-weight: 500;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.submit-btn:active {
+    opacity: 0.8;
+}
+
+/* 协议勾选区域 */
+.agreement-box {
+    width: 90%;
+    display: flex;
+    align-items: flex-start;
+    margin-top: 4vw;
+}
+
+.agreement-box i {
+    color: #FF6200;
+    font-size: 4.5vw;
+    margin-right: 2vw;
+    margin-top: 0.2vw;
+}
+
+.agreement-box .text {
+    flex: 1;
+    font-size: 3.2vw;
+    color: #666;
+    line-height: 1.5;
+}
+
+.agreement-box .text a {
+    color: #4A90E2;
+    text-decoration: none;
+}
+
+/* 底部版本号 */
+.version-text {
+    position: fixed;
+    bottom: 5vw;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    font-size: 3.5vw;
+    color: #CCCCCC;
+}

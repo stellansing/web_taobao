@@ -1,0 +1,663 @@
+
+body {
+    font-family: "PingFang SC", sans-serif;
+    background-color: #F3F6F8;
+    margin: 0;
+    padding: 0;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.wrapper {
+    width: 100%;
+    background-color: #F3F6F8;
+}
+
+/* 顶部导航 */
+.navBar {
+    display: flex;
+    flex-direction: column;
+    height: 28vw;
+    width: 100%;
+    background-color: #EBF5FD;
+    align-items: flex-start;
+    left: 0;
+    top: 0;
+    padding: 0 3vw;
+}
+.navTitle {
+    font-size: 5vw;
+    font-weight: 500;
+    margin-left: 8vw;
+    margin-bottom: 4vw;
+    color: #333;
+}
+
+/* 主内容区 */
+.mainContent {
+    margin-top: 0;
+    padding-bottom: 16vw;
+}
+
+/* 配送提示 */
+.deliveryTip {
+    background-color: #EBF5FD;
+    padding: 2vw 3vw;
+    font-size: 3.5vw;
+    color: #666;
+    display: flex;
+    align-items: center;
+}
+.tipIcon {
+    margin-right: 1.5vw;
+}
+
+/* 配送方式Tab */
+.deliveryTab {
+    display: flex;
+    height: 10vw;
+    background-color: white;
+    border-bottom: 1px solid #f0f0f0;
+}
+.deliveryTab .tabItem {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 4vw;
+    color: #999;
+    position: relative;
+    cursor: pointer;
+}
+.deliveryTab .tabItem.active {
+    color: #333;
+    font-weight: 500;
+}
+.tabTag {
+    font-size: 2.8vw;
+    color: #FF4B5A;
+    background-color: #FFECEC;
+    padding: 0.3vw 1.5vw;
+    border-radius: 2vw;
+    margin-left: 1vw;
+}
+
+/* 地址卡片 */
+.addressCard {
+    background-color: white;
+    padding: 3vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.addressTag {
+    display: inline-block;
+    padding: 0.5vw 1.5vw;
+    background-color: #FFF2E8;
+    color: #FF6200;
+    font-size: 2.8vw;
+    border-radius: 1vw;
+    margin-right: 2vw;
+}
+.addressDetail {
+    font-size: 5.2vw;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 1.5vw;
+}
+.addressUser {
+    font-size: 3.5vw;
+    color: #666;
+}
+.arrow {
+    color: #ccc;
+    font-size: 3vw;
+    transform: rotate(-90deg);
+    margin-bottom: 4vw;
+}
+
+/* 时间区域 */
+.timeSection {
+    background-color: white;
+    padding: 0 3vw;
+}
+.timeRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 12vw;
+}
+.timeLabel {
+    font-size: 3.8vw;
+    color: #333;
+}
+.timeValue {
+    font-size: 3.5vw;
+    color: #666;
+    display: flex;
+    align-items: center;
+}
+.timeValue .arrow {
+    margin-left: 1vw;
+}
+.insureRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 12vw;
+}
+.insureLeft {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1vw;
+}
+.insureTitle {
+    font-size: 3.5vw;
+    color: #333;
+}
+.insureDesc {
+    font-size: 3vw;
+    color: #999;
+}
+.insurePrice {
+    font-size: 3.5vw;
+    color: #333;
+    display: flex;
+    align-items: center;
+}
+.radio {
+    width: 3vw;
+    height: 3vw;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    margin-left: 2vw;
+}
+.questionIcon {
+    margin-top: 0.6vw;
+    width: 3vw;
+    height: 3vw;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    font-size: 2.5vw;
+    color: #999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 商品区域 */
+.goodsSection {
+    background-color: white;
+    margin-top: 2vw;
+    padding: 0 3vw;
+}
+.shopName {
+    height: 12vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.shopTitle {
+    font-size: 4vw;
+    font-weight: 500;
+    color: #333;
+}
+.deliveryTag {
+    font-size: 3vw;
+    color: #FF6200;
+    background-color: #FFF2E8;
+    padding: 0.5vw 1.5vw;
+    border-radius: 1vw;
+}
+.goodsItem {
+    display: flex;
+    padding: 3vw 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+.goodsImg {
+    width: 16vw;
+    height: 16vw;
+    border-radius: 2vw;
+    margin-right: 3vw;
+    flex-shrink: 0;
+    background-color: #f5f5f5;
+    overflow: hidden;
+}
+.goodsInfo {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.goodsName {
+    font-size: 3.8vw;
+    color: #333;
+}
+.goodsSpec {
+    font-size: 3.2vw;
+    color: #999;
+    margin-top: 1vw;
+}
+.goodsNum {
+    font-size: 3.2vw;
+    color: #666;
+    margin-top: 1vw;
+}
+.goodsPrice {
+    text-align: right;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.priceOriginal {
+    font-size: 3vw;
+    color: #999;
+    font-weight: 500;
+    text-decoration: line-through;
+}
+.priceFinal {
+    font-size: 3vw;
+    color: #FF4B5A;
+    margin-bottom: 8vw;
+}
+.packFeeRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 12vw;
+}
+.feeLabel {
+    font-size: 3.5vw;
+    color: #333;
+    display: flex;
+    align-items: center;
+}
+.feeValue {
+    font-size: 3.5vw;
+    color: #333;
+}
+
+/* 费用明细 */
+.feeSection {
+    background-color: white;
+    margin-top: 2vw;
+    padding: 0 3vw;
+}
+.feeRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 13vw;
+}
+.feeLeft {
+    display: flex;
+    gap: 1vw;
+}
+.feeIcon {
+    width: 5vw;
+    height: 5vw;
+    border-radius: 1vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3vw;
+    color: white;
+    margin-right: 1vw;
+    flex-shrink: 0;
+}
+.feeIcon.red {
+    background-color: #FF4B5A;
+}
+.feeIcon.orange {
+    background-color: #FF6200;
+}
+.feeTitle {
+    font-size: 3.8vw;
+    color: #333;
+}
+.feeRight {
+    font-size: 3.5vw;
+    color: #666;
+    display: flex;
+    align-items: center;
+}
+.feeRight.red {
+    color: #FF4B5A;
+}
+.feeRight .arrow {
+    margin-left: 1vw;
+    color: #ccc;
+}
+.originalPrice {
+    text-decoration: line-through;
+    color: #999;
+    margin-right: 1vw;
+}
+.currentPrice {
+    color: #333;
+}
+.discountTip {
+    font-size: 3.2vw;
+    color: #FF4B5A;
+    margin-top: -4vw;
+    margin-bottom: 2vw;
+}
+.totalRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 14vw;
+}
+.totalLeft {
+    font-size: 4vw;
+    color: #333;
+    display: flex;
+    align-items: center;
+    gap: 1vw;
+}
+.totalRight {
+    display: flex;
+    align-items: baseline;
+}
+.totalDiscount {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3.8vw;
+    color: #FF4B5A;
+    margin-right: 2vw;
+}
+.totalPrice {
+    font-size: 6.5vw;
+    font-weight: bold;
+    color: #333;
+}
+
+/* 红包推广 */
+.redPacketPromo {
+    background-color: white;
+    margin-top: 2vw;
+    padding: 3vw;
+}
+.promoTitle {
+    font-size: 4.2vw;
+    font-weight: 500;
+    color: #333;
+    margin-bottom: 3vw;
+    display: flex;
+    align-items: center;
+}
+.promoTag {
+    display: inline-block;
+    padding: 0.5vw 1.5vw;
+    background-color: #FF4B5A;
+    color: white;
+    font-size: 2.8vw;
+    border-radius: 1vw;
+    margin-right: 2vw;
+}
+.promoContent {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+}
+.packetCard {
+    width: 34vw;
+    border-radius: 2vw;
+    background-color: white;
+    border: 1px solid #FF4B5A;
+    position: relative;
+    overflow: hidden;
+    padding: 3vw 3vw 4vw 3vw;
+}
+.cardTag {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #FFE0E0;
+    color: #FF4B5A;
+    font-size: 2.5vw;
+    padding: 0.5vw 1.5vw;
+    border-radius: 1vw;
+}
+.cardAmount {
+    font-size: 6vw;
+    font-weight: bold;
+    color: #FF4B5A;
+    margin-top: 0;
+    margin-left: 6vw;
+    display: flex;
+    align-items: baseline;
+}
+.cardAmount span {
+    font-size: 3.5vw;
+    margin: 0 0.5vw;
+}
+.cardNum {
+    font-size: 3.2vw;
+    color: #FF4B5A;
+    margin-top: 1vw;
+    margin-left: 13vw;
+}
+.cardBtn {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 7vw;
+    background-color: #FF4B5A;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3.5vw;
+    font-weight: 500;
+}
+.cardRight {
+    flex: 1;
+    margin-left: 3vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.cardTitle {
+    font-size: 4vw;
+    font-weight: 500;
+    color: #333;
+}
+.cardSubtitle {
+    font-size: 3.2vw;
+    color: #FF4B5A;
+    background-color: #FFECEC;
+    padding: 0.5vw 2vw;
+    border-radius: 1vw;
+    display: inline-block;
+    margin-top: 1vw;
+}
+.cardPrice {
+    display: flex;
+    align-items: baseline;
+    margin-top: 2vw;
+}
+.priceNow {
+    font-size: 5vw;
+    font-weight: bold;
+    color: #FF4B5A;
+}
+.cardRightBottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.backTag {
+    background-color: #FF4B5A;
+    color: white;
+    font-size: 3vw;
+    padding: 0.5vw 1vw;
+    border-radius: 1vw;
+    margin-bottom: 11vw;
+    margin-right: -5vw;
+    white-space: nowrap;
+}
+.radioBig {
+    width: 5vw;
+    height: 5vw;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+.promoFooter {
+    font-size: 2.8vw;
+    color: #999;
+    margin-top: 2vw;
+}
+.promoFooter a {
+    color: #666;
+    text-decoration: none;
+    margin: 0 0.5vw;
+}
+
+/* 选项列表 */
+.optionList {
+    background-color: white;
+    margin-top: 2vw;
+}
+.optionItem {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 10vw;
+    padding: 0 3vw;
+}
+.optionItem:last-child {
+    border-bottom: none;
+}
+.optionLabel {
+    font-size: 3.8vw;
+    color: #333;
+}
+.optionValue {
+    font-size: 3.5vw;
+    color: #999;
+    display: flex;
+    align-items: center;
+}
+.optionValue .must {
+    color: #FF4B5A;
+    margin-right: 1vw;
+}
+.optionValue .arrow {
+    margin-left: 1vw;
+    color: #ccc;
+}
+
+/* 安全权益 */
+.securitySection {
+    background-color: white;
+    margin-top: 2vw;
+    padding: 0 3vw;
+}
+.securityItem {
+    padding: 3vw 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+.securityItem:last-child {
+    border-bottom: none;
+}
+.securityTop {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.securityLeft {
+    display: flex;
+    align-items: center;
+    gap: 1vw;
+}
+.securityIcon {
+    width: 4vw;
+    height: 4vw;
+    margin-right: 1vw;
+    color: #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.securityTitle {
+    font-size: 3.8vw;
+    color: #333;
+}
+.securityStatus {
+    font-size: 3.5vw;
+    color: #333;
+    display: flex;
+    align-items: center;
+}
+.checkIcon {
+    width: 4vw;
+    height: 4vw;
+    background-color: #FF4B5A;
+    border-radius: 50%;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.5vw;
+    margin-left: 2vw;
+    flex-shrink: 0;
+}
+.securityDesc {
+    font-size: 3vw;
+    color: #999;
+    margin-top: 1.5vw;
+    line-height: 1.5;
+}
+
+/* 底部支付栏 */
+.footerPay {
+    width: 100%;
+    height: 14vw;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    border-top: 1px solid #eee;
+    padding: 0 3vw;
+    z-index: 100;
+}
+.payLeft {
+    display: flex;
+    flex-direction: column;
+}
+.payTotal {
+    font-size: 3vw;
+    font-weight: bold;
+    color: #333;
+}
+.payTotal span {
+    color: #FF4B5A;
+    font-size: 5.5vw;
+    margin-left: 0.5vw;
+}
+.payDiscount {
+    font-size: 3vw;
+    color: #FF4B5A;
+    margin-top: 0.5vw;
+}
+.payBtn {
+    width: 30vw;
+    height: 10vw;
+    background-color: #ff6200;
+    color: white;
+    border-radius: 1vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 4.2vw;
+    font-weight: 500;
+    margin-right: 7vw;
+}

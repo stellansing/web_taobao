@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>确认订单</title>
+    <link rel="stylesheet" href="node_modules/normalize.css/normalize.css">
+    <link rel="stylesheet" href="node_modules/@fortawesome/fontawesome-free/css/all.css">
+    <link rel="stylesheet" href="css/globle.css">
+    <script src="js/confirmOrder.js"></script>
+    <link rel="stylesheet" href="css/confirmOrder.css">
+</head>
+<body>
+<div class="wrapper">
+    <!-- 顶部导航栏 -->
+    <div class="navBar">
+
+<!--        <i style="color: #BDBDBD" class="fa-solid fa-chevron-down"></i>-->
+        <div style="height: 30vw">&nbsp;</div>
+        <div class="navTitle">确认订单</div>
+    </div>
+
+    <!-- 主内容区 -->
+    <div class="mainContent">
+        <!-- 配送提示 -->
+        <div class="deliveryTip">
+            <span class="tipIcon">🔔</span>
+            明天 09:50 开始配送
+        </div>
+
+        <!-- 配送方式Tab -->
+        <div class="deliveryTab">
+            <div class="tabItem" onclick="switchDelivery(1)">外卖配送</div>
+            <div class="tabItem" onclick="switchDelivery(2)">
+                到店自取
+                <span class="tabTag">专享7折</span>
+            </div>
+        </div>
+
+        <!-- 收货地址 -->
+        <div class="addressCard">
+            <div class="addressInfo">
+                <div class="addressDetail">
+                    <span class="addressTag">学校</span>
+                    云南大学呈贡校区楸苑3幢
+                </div>
+                <div class="addressUser">张三(先生) &nbsp; 1997777777</div>
+            </div>
+            <i style="color: #BDBDBD" class="arrow fa-solid fa-chevron-down"></i>
+        </div>
+
+        <!-- 预计时间 & 慢必赔 -->
+        <div class="timeSection">
+            <div class="timeRow">
+                <div class="timeLabel">预计时间</div>
+                <div class="timeValue">
+                    选择送达时间
+                    <i style="color: #BDBDBD;margin-bottom: 0" class="arrow fa-solid fa-chevron-down"></i>
+                </div>
+            </div>
+            <div class="insureRow">
+                <div class="insureLeft">
+                    <div class="insureTitle">慢必赔</div>
+                    <div class="questionIcon">?</div>
+                    <div class="insureDesc">超时5分钟起赔，最高赔22元红包</div>
+                </div>
+                <div class="insurePrice">
+                    ¥0.26
+                    <div class="radio"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 商品区域 -->
+        <div class="goodsSection">
+            <div class="shopName">
+                <div class="shopTitle">食夫指·手撕烤鸭(大学城店)</div>
+                <div class="deliveryTag">蜂鸟准时达</div>
+            </div>
+            <div class="goodsItem">
+                <div class="goodsImg"></div>
+                <div class="goodsInfo">
+                    <div class="goodsName">（热卖中）手撕烤鸭半只</div>
+                    <div class="goodsSpec">原味</div>
+                    <div class="goodsNum">× 1</div>
+                </div>
+                <div class="goodsPrice">
+                    <div class="priceOriginal">¥27.8</div>
+                    <div class="priceFinal">到手价¥23.8</div>
+                </div>
+            </div>
+            <div class="packFeeRow">
+                <div class="feeLabel">打包费</div>
+                <div class="feeValue">¥2</div>
+            </div>
+        </div>
+
+        <!-- 费用明细 -->
+        <div class="feeSection">
+            <div class="feeRow">
+                <div class="feeLeft">
+                    <div class="feeTitle">配送费</div>
+                    <div class="questionIcon">?</div>
+                </div>
+                <div class="feeRight">
+                    <span class="originalPrice">¥6.6</span>
+                    <span class="currentPrice">¥0.5</span>
+                </div>
+            </div>
+            <div class="discountTip">惊喜减6.1元</div>
+
+            <div class="feeRow">
+                <div class="feeLeft">
+                    <div class="feeIcon red">¥</div>
+                    <div class="feeTitle">平台红包</div>
+                </div>
+                <div class="feeRight">
+                    无可用红包
+                    <i style="color: #BDBDBD;margin-bottom: 0" class="arrow fa-solid fa-chevron-down"></i>
+                </div>
+            </div>
+
+            <div class="feeRow">
+                <div class="feeLeft">
+                    <div class="feeIcon orange">返</div>
+                    <div class="feeTitle">下单返豆</div>
+                    <div class="questionIcon">?</div>
+                </div>
+                <div class="feeRight red">返10吃货豆</div>
+            </div>
+
+            <div class="totalRow">
+                <div class="totalLeft">
+                    合计
+                    <div class="questionIcon">?</div>
+                </div>
+                <div class="totalRight">
+
+                    <div class="totalDiscount">
+                        <div style="font-size: 3vw;margin-top:2vw">已优惠 ¥</div>
+                        <div style="font-size: 5vw;font-weight: 700">10.1</div>
+                    </div>
+                    <div class="totalPrice">¥26.3</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 外卖红包推广 -->
+        <div class="redPacketPromo">
+            <div class="promoTitle">
+                <span class="promoTag">外卖红包</span>
+                购外卖红包，本单立减5元
+            </div>
+            <div class="promoContent">
+                <div class="packetCard">
+                    <div class="cardTag">可爆涨</div>
+                    <div class="cardAmount">
+                        <span>¥</span>5
+                        <span>起×</span>6
+                        <span>张</span>
+                    </div>
+                    <div class="cardNum">无门槛</div>
+                    <div class="cardBtn">爆红包</div>
+                </div>
+                <div class="cardRight">
+                    <div>
+                        <div class="cardTitle">30元超级吃货卡</div>
+                        <div class="cardSubtitle">本单立减¥5</div>
+                        <div class="cardPrice">
+                            <span class="priceNow">¥0.1</span>
+                            <span class="priceOriginal">¥18</span>
+                        </div>
+                    </div>
+                    <div class="cardRightBottom">
+                        <span class="backTag">一单回本!</span>
+                        <div class="radioBig"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="promoFooter">
+                31天内有效 | 购买即视为同意
+                <a href="javascript:;">服务协议</a>
+                <a href="javascript:;">外卖红包权益说明</a>
+                <a href="javascript:;">相关协议</a>
+            </div>
+        </div>
+
+        <!-- 功能选项列表 -->
+        <div class="optionList">
+            <div class="optionItem">
+                <div class="optionLabel">备注</div>
+                <div class="optionValue">
+                    可向商家/骑手提出菜品与配送需求
+                    <i style="color: #BDBDBD;margin-bottom: 0" class="arrow fa-solid fa-chevron-down"></i>
+                </div>
+            </div>
+            <div class="optionItem">
+                <div class="optionLabel">餐具</div>
+                <div class="optionValue">
+                    <span class="must">必选</span>
+                    <i style="color: #BDBDBD;margin-bottom: 0" class="arrow fa-solid fa-chevron-down"></i>
+                </div>
+            </div>
+            <div class="optionItem">
+                <div class="optionLabel">发票</div>
+                <div class="optionValue">
+                    未添加开票信息
+                    <i style="color: #BDBDBD;margin-bottom: 0" class="arrow fa-solid fa-chevron-down"></i>
+                </div>
+            </div>
+        </div>
+
+        <!-- 安全权益区域 -->
+        <div class="securitySection">
+            <div class="securityItem">
+                <div class="securityTop">
+                    <div class="securityLeft">
+                        <span class="securityIcon">🛡</span>
+                        <div class="securityTitle">号码保护</div>
+                        <div class="questionIcon">?</div>
+                    </div>
+                    <div class="securityStatus">
+                        加密保护中
+                        <span class="checkIcon">✓</span>
+                    </div>
+                </div>
+                <div class="securityDesc">
+                    为保护您的隐私安全，已对商家、骑士隐藏您的真实手机号；为保障服务质量，开启号码保护的订单通话可能会被录音
+                </div>
+            </div>
+            <div class="securityItem">
+                <div class="securityTop">
+                    <div class="securityLeft">
+                        <span class="securityIcon">✓</span>
+                        <div class="securityTitle">安心权益</div>
+                    </div>
+                    <div class="securityStatus">
+                        食无忧
+                        <i style="color: #BDBDBD;margin-bottom: 0" class="arrow fa-solid fa-chevron-down"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 底部支付栏 -->
+    <div class="footerPay">
+        <div class="payLeft">
+            <div class="payTotal">合计<span>¥26.3</span></div>
+            <div class="payDiscount">已优惠¥10.1</div>
+        </div>
+        <div class="payBtn">立即支付</div>
+    </div>
+</div>
+
+<script src="confirmOrder.js"></script>
+</body>
+</html>

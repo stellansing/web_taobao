@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>登录验证</title>
+    <link rel="stylesheet" href="node_modules/normalize.css/normalize.css">
+    <link rel="stylesheet" href="node_modules/@fortawesome/fontawesome-free/css/all.css">
+    <link rel="stylesheet" href="css/globle.css">
+    <link rel="stylesheet" href="css/login.css">
+    <script src="js/login.js"></script>
+
+</head>
+<body>
+<div class="wrapper">
+
+    <!-- 手机号输入框组 -->
+    <div class="input-group">
+        <div class="prefix">
+            <span>+86</span>
+            <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="input-text">请输入手机号</div>
+    </div>
+
+    <!-- 验证码输入框组 -->
+    <div class="input-group">
+        <div class="input-text">请输入密码</div>
+    </div>
+
+    <!-- 登录按钮 -->
+    <button class="submit-btn" onclick="handleLogin()">同意协议并登录</button>
+
+    <!-- 用户协议 -->
+    <div class="agreement-box">
+        <i class="fas fa-check-circle"></i>
+        <div class="text">
+            已阅读并同意
+            <a href="#">《用户服务协议》</a>、
+            <a href="#">《隐私政策》</a>、
+            <a href="#">《运营商协议》</a>
+        </div>
+    </div>
+
+    <!-- 底部版本号 -->
+    <div class="version-text">v1.6.1</div>
+
+</div>
+</body>
+</html>
